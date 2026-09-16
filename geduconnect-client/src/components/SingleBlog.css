@@ -1,0 +1,897 @@
+/* =========================================================
+   SINGLE BLOG PAGE
+   Crimson #7a1f2b · Gold #c9922a
+   Matches BlogCard.css + BlogsCarousel.css system
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ─── SECTION / CONTAINER ─────────────────────────────── */
+
+.singleblog__section {
+  background: #faf8f5;
+  padding: 36px 0 60px;
+  min-height: 60vh;
+}
+
+.singleblog__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ─── TWO-COLUMN LAYOUT ───────────────────────────────── */
+
+.singleblog__layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ─── ARTICLE CONTENT CARD ────────────────────────────── */
+
+.singleblog__content {
+  min-width: 0;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(122, 31, 43, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* ─── HERO IMAGE BLOCK ────────────────────────────────── */
+
+.singleblog__hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background: #1a0a10;
+  overflow: hidden;
+}
+
+.singleblog__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.singleblog__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.3) 55%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.singleblog__category-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  background: #7a1f2b;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.singleblog__hero-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 20px 28px 24px;
+}
+
+.singleblog__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* ─── META ROW ────────────────────────────────────────── */
+
+.singleblog__meta-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 28px 14px;
+  border-bottom: 1px solid rgba(122, 31, 43, 0.08);
+}
+
+.singleblog__meta-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.singleblog__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7a1f2b;
+}
+
+.singleblog__meta-item svg {
+  flex-shrink: 0;
+  color: #c9922a;
+}
+
+/* ─── TAGS ────────────────────────────────────────────── */
+
+.singleblog__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.singleblog__tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #7a1f2b;
+  background: rgba(122, 31, 43, 0.07);
+  border: 1px solid rgba(122, 31, 43, 0.14);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   ARTICLE BODY
+   Full reset + restyle for all CMS-generated HTML patterns:
+   bordered section divs, TOC, FAQs (<details>), code blocks,
+   bullets, numbered lists, tables, blockquotes, inline styles
+========================================================= */
+
+.singleblog__body {
+  padding: 28px 28px 32px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: #2d1a20;
+}
+
+/* ── Force all child elements to inherit font so inline
+      styles from the CMS don't break font or color ── */
+.singleblog__body * {
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CMS SECTION DIVS
+   The CMS wraps every section in:
+   <div style="border:1px solid #e6e6e6; padding:20px; border-radius:1rem; margin-bottom:40px;">
+   We restyle all bordered divs to match our design system.
+───────────────────────────────────────────────────────── */
+
+.singleblog__body > div[style*="border"] {
+  border: 1.5px solid rgba(122, 31, 43, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 24px 26px !important;
+  margin-bottom: 28px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* First div (intro) gets a subtle crimson left accent */
+.singleblog__body > div[style*="border"]:first-child {
+  border-left: 4px solid #7a1f2b !important;
+  padding-left: 22px !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HEADINGS
+───────────────────────────────────────────────────────── */
+
+.singleblog__body h1,
+.singleblog__body h2,
+.singleblog__body h3,
+.singleblog__body h4,
+.singleblog__body h5,
+.singleblog__body h6 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 700 !important;
+  color: #14070b !important;
+  line-height: 1.2 !important;
+  margin: 1.4em 0 0.5em !important;
+  padding: 0 !important;
+}
+
+/* First heading inside a section has no top margin */
+.singleblog__body > div[style*="border"] > h2:first-child,
+.singleblog__body > div[style*="border"] > h3:first-child {
+  margin-top: 0 !important;
+}
+
+.singleblog__body h1 { font-size: 30px !important; }
+.singleblog__body h2 { font-size: 26px !important; }
+.singleblog__body h3 {
+  font-size: 20px !important;
+  color: #3d0c14 !important;
+  border-bottom: 1px solid rgba(122, 31, 43, 0.08) !important;
+  padding-bottom: 6px !important;
+  margin-top: 1.6em !important;
+}
+.singleblog__body h4 { font-size: 17px !important; }
+.singleblog__body h5 { font-size: 15px !important; }
+.singleblog__body h6 { font-size: 14px !important; }
+
+/* ─────────────────────────────────────────────────────────
+   PARAGRAPHS
+───────────────────────────────────────────────────────── */
+
+.singleblog__body p {
+  margin: 0 0 1em !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+  color: #2d1a20 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   LINKS
+   Override the CMS's inline color:#1a73e8 on TOC links
+   and keep all other links crimson.
+───────────────────────────────────────────────────────── */
+
+.singleblog__body a {
+  color: #7a1f2b !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  transition: color 0.2s ease;
+}
+
+.singleblog__body a:hover {
+  color: #c9922a !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   INLINE FORMATTING
+───────────────────────────────────────────────────────── */
+
+.singleblog__body strong,
+.singleblog__body b {
+  font-weight: 700 !important;
+  color: #14070b !important;
+}
+
+.singleblog__body em,
+.singleblog__body i {
+  font-style: italic !important;
+}
+
+.singleblog__body u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BULLET LISTS — restore bullets that global CSS resets kill
+───────────────────────────────────────────────────────── */
+
+.singleblog__body ul {
+  display: block !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  padding-left: 1.5em !important;
+  margin: 0.4em 0 1em !important;
+}
+
+.singleblog__body ul ul {
+  list-style-type: circle !important;
+  margin: 0.25em 0 0.25em !important;
+}
+
+.singleblog__body ul ul ul {
+  list-style-type: square !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   NUMBERED LISTS
+───────────────────────────────────────────────────────── */
+
+.singleblog__body ol {
+  display: block !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  padding-left: 1.5em !important;
+  margin: 0.4em 0 1em !important;
+}
+
+.singleblog__body ol ol {
+  list-style-type: lower-alpha !important;
+  margin: 0.25em 0 0.25em !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   LIST ITEMS — must be display:list-item or bullets vanish
+───────────────────────────────────────────────────────── */
+
+.singleblog__body li {
+  display: list-item !important;
+  margin-bottom: 0.4em !important;
+  line-height: 1.75 !important;
+  color: #2d1a20 !important;
+  font-size: 15px !important;
+}
+
+.singleblog__body li > ul,
+.singleblog__body li > ol {
+  margin-top: 0.25em !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TABLE OF CONTENTS
+   CMS outputs a plain bordered <div> with <h2>Table of Contents</h2>
+   and a <ul style="line-height:1.9"> of anchor links.
+───────────────────────────────────────────────────────── */
+
+/* Detect the TOC section by its heading */
+.singleblog__body div:has(> h2:first-child) {
+  /* Applied to all section divs — see the border rule above */
+}
+
+/* TOC specifically: the <ul> inside it should have no bullets,
+   just clean indented links */
+.singleblog__body div > h2 + ul,
+.singleblog__body div > h2 ~ ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 8px 0 0 !important;
+  border-top: 1px solid rgba(122, 31, 43, 0.08) !important;
+  padding-top: 12px !important;
+}
+
+.singleblog__body div > h2 + ul li,
+.singleblog__body div > h2 ~ ul li {
+  list-style: none !important;
+  padding: 4px 0 4px 14px !important;
+  margin-bottom: 0 !important;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease, padding-left 0.2s ease;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+.singleblog__body div > h2 + ul li:hover,
+.singleblog__body div > h2 ~ ul li:hover {
+  border-left-color: #c9922a;
+  padding-left: 18px !important;
+}
+
+.singleblog__body div > h2 + ul li a,
+.singleblog__body div > h2 ~ ul li a {
+  text-decoration: none !important;
+  color: #7a1f2b !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.singleblog__body div > h2 + ul li a:hover,
+.singleblog__body div > h2 ~ ul li a:hover {
+  color: #c9922a !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   FAQ — <details> / <summary> elements
+───────────────────────────────────────────────────────── */
+
+.singleblog__body details {
+  border: 1.5px solid rgba(122, 31, 43, 0.12) !important;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  margin-top: 12px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  transition: box-shadow 0.2s ease;
+}
+
+.singleblog__body details[open] {
+  box-shadow: 0 4px 16px rgba(122, 31, 43, 0.10) !important;
+}
+
+.singleblog__body summary {
+  cursor: pointer !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #14070b !important;
+  padding: 16px 18px !important;
+  list-style: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  user-select: none !important;
+  background: rgba(122, 31, 43, 0.03) !important;
+  transition: background 0.2s ease;
+}
+
+.singleblog__body summary::-webkit-details-marker {
+  display: none !important;
+}
+
+/* Custom arrow via ::after */
+.singleblog__body summary::after {
+  content: "▾" !important;
+  font-size: 16px !important;
+  color: #c9922a !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.25s ease !important;
+  margin-left: 12px !important;
+}
+
+.singleblog__body details[open] summary::after {
+  transform: rotate(180deg) !important;
+}
+
+.singleblog__body summary:hover {
+  background: rgba(122, 31, 43, 0.06) !important;
+}
+
+/* Content inside open <details> */
+.singleblog__body details > p,
+.singleblog__body details > div {
+  padding: 14px 18px 16px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  color: #2d1a20 !important;
+  border-top: 1px solid rgba(122, 31, 43, 0.08) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CODE BLOCKS — <pre><code>
+   CMS uses <pre style="background:#f8fafc;...">
+   We override the inline style.
+───────────────────────────────────────────────────────── */
+
+.singleblog__body pre {
+  background: #1a0a10 !important;
+  color: #f5d49a !important;
+  border-radius: 10px !important;
+  padding: 18px 20px !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  overflow-x: auto !important;
+  margin: 1.2em 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
+  /* scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #7a1f2b #2d0a14;
+}
+
+.singleblog__body pre::-webkit-scrollbar {
+  height: 5px;
+}
+.singleblog__body pre::-webkit-scrollbar-track {
+  background: #2d0a14;
+  border-radius: 4px;
+}
+.singleblog__body pre::-webkit-scrollbar-thumb {
+  background: #7a1f2b;
+  border-radius: 4px;
+}
+
+.singleblog__body code {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 13px !important;
+  background: rgba(122, 31, 43, 0.07) !important;
+  color: #7a1f2b !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+}
+
+/* code inside pre — no extra background */
+.singleblog__body pre code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  border-radius: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BLOCKQUOTE
+───────────────────────────────────────────────────────── */
+
+.singleblog__body blockquote {
+  margin: 1.4em 0 !important;
+  padding: 14px 20px !important;
+  border-left: 4px solid #c9922a !important;
+  background: rgba(201, 146, 42, 0.06) !important;
+  border-radius: 0 10px 10px 0 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 18px !important;
+  font-style: italic !important;
+  color: #4a1b0c !important;
+}
+
+.singleblog__body blockquote p {
+  margin: 0 !important;
+  font-size: inherit !important;
+  color: inherit !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   IMAGES
+───────────────────────────────────────────────────────── */
+
+.singleblog__body img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  margin: 1em 0 !important;
+  display: block !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HR
+───────────────────────────────────────────────────────── */
+
+.singleblog__body hr {
+  border: none !important;
+  border-top: 1px solid rgba(122, 31, 43, 0.12) !important;
+  margin: 2em 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TABLES
+───────────────────────────────────────────────────────── */
+
+.singleblog__body table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 14px !important;
+  margin: 1.2em 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06) !important;
+}
+
+.singleblog__body th {
+  background: rgba(122, 31, 43, 0.07) !important;
+  color: #7a1f2b !important;
+  font-weight: 700 !important;
+  padding: 11px 14px !important;
+  text-align: left !important;
+  border-bottom: 2px solid rgba(122, 31, 43, 0.15) !important;
+}
+
+.singleblog__body td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid rgba(122, 31, 43, 0.07) !important;
+  color: #2d1a20 !important;
+  vertical-align: top !important;
+}
+
+.singleblog__body tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HIDE ALL REMAINING CTA / PROMO BLOCKS
+   Belt-and-suspenders: anything the JS sanitiser misses.
+   Targets:
+   - Purple gradient application form divs
+   - "Related Article / Also Read / CHECK OUT" banners
+   - "Explore More" link grids
+───────────────────────────────────────────────────────── */
+
+/* Purple gradient divs (application form, explore more) */
+.singleblog__body div[style*="#3730a3"],
+.singleblog__body div[style*="#4f46e5"],
+.singleblog__body div[style*="#6366f1"],
+.singleblog__body div[style*="3730a3"],
+.singleblog__body div[style*="4f46e5"] {
+  display: none !important;
+}
+
+/* Inline-background <a> buttons (purple CTA pills) */
+.singleblog__body a[style*="background:#3730a3"],
+.singleblog__body a[style*="background: #3730a3"],
+.singleblog__body a[style*="background:linear-gradient"],
+.singleblog__body a[style*="background: linear-gradient"] {
+  display: none !important;
+}
+
+/* Parent <p> of a hidden CTA <a> — hides "Related Article:" label too */
+.singleblog__body p:has(> a[style*="background:#3730a3"]),
+.singleblog__body p:has(> a[style*="background:linear-gradient"]) {
+  display: none !important;
+}
+
+/* Sup / Sub */
+.singleblog__body sup { font-size: 0.75em; vertical-align: super; }
+.singleblog__body sub { font-size: 0.75em; vertical-align: sub; }
+
+/* ─── BACK NAVIGATION ─────────────────────────────────── */
+
+.singleblog__nav {
+  padding: 20px 28px 28px;
+  border-top: 1px solid rgba(122, 31, 43, 0.08);
+}
+
+.singleblog__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7a1f2b, #c9922a);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  box-shadow: 0 5px 16px rgba(122, 31, 43, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.singleblog__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(122, 31, 43, 0.30);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+/* ─── SIDEBAR ─────────────────────────────────────────── */
+
+.singleblog__sidebar {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(122, 31, 43, 0.10);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 0 16px;
+}
+
+.singleblog__sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 12px;
+  border-bottom: 1px solid rgba(122, 31, 43, 0.08);
+  margin-bottom: 2px;
+}
+
+.singleblog__sidebar-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a1f2b;
+}
+
+.singleblog__sidebar-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.singleblog__sidebar-item {
+  opacity: 0;
+  animation: sb-fadein 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.singleblog__sidebar-item:last-child .blogcard__sidebar-link {
+  border-bottom: none !important;
+}
+
+@keyframes sb-fadein {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.singleblog__sidebar-empty {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #9ca3af;
+  padding: 18px 0;
+  text-align: center;
+}
+
+.singleblog__sidebar-footer {
+  padding: 14px 0 16px;
+  border-top: 1px solid rgba(122, 31, 43, 0.08);
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.singleblog__viewall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7a1f2b, #c9922a);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(122, 31, 43, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.singleblog__viewall-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(122, 31, 43, 0.30);
+  color: #fff !important;
+}
+
+/* ─── SKELETONS ───────────────────────────────────────── */
+
+.singleblog__skeleton-hero {
+  border-radius: 20px 20px 0 0;
+  height: 320px;
+  background: linear-gradient(90deg,
+    rgba(122, 31, 43, 0.06) 0%,
+    rgba(201, 146, 42, 0.10) 50%,
+    rgba(122, 31, 43, 0.06) 100%);
+  background-size: 200% 100%;
+  animation: sb-shimmer 1.6s linear infinite;
+}
+
+.singleblog__skeleton-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.singleblog__skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    rgba(122, 31, 43, 0.06) 0%,
+    rgba(201, 146, 42, 0.10) 50%,
+    rgba(122, 31, 43, 0.06) 100%);
+  background-size: 200% 100%;
+  animation: sb-shimmer 1.6s linear infinite;
+}
+
+.singleblog__skeleton-sidebar {
+  height: 76px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg,
+    rgba(122, 31, 43, 0.06) 0%,
+    rgba(201, 146, 42, 0.10) 50%,
+    rgba(122, 31, 43, 0.06) 100%);
+  background-size: 200% 100%;
+  animation: sb-shimmer 1.6s linear infinite;
+}
+
+@keyframes sb-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── NOT FOUND ───────────────────────────────────────── */
+
+.singleblog__notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 72px 24px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px dashed rgba(122, 31, 43, 0.20);
+  gap: 12px;
+}
+
+.singleblog__notfound-icon {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.singleblog__notfound-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #14070b;
+  margin: 0;
+}
+
+.singleblog__notfound-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1000px) {
+  .singleblog__layout { grid-template-columns: 1fr 280px; gap: 20px; }
+}
+
+@media (max-width: 860px) {
+  .singleblog__layout { grid-template-columns: 1fr; gap: 20px; }
+  .singleblog__sidebar { position: static; padding: 0 14px; }
+  .singleblog__hero { aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 768px) {
+  .singleblog__section { padding: 20px 0 48px; }
+  .singleblog__container { padding: 0 16px; }
+  .singleblog__title { font-size: 22px; }
+  .singleblog__hero-bottom { padding: 16px 18px 20px; }
+  .singleblog__meta-row { padding: 14px 18px 12px; flex-direction: column; gap: 10px; }
+  .singleblog__body { padding: 20px 18px 24px; font-size: 14px !important; }
+  .singleblog__body h2 { font-size: 22px !important; }
+  .singleblog__body h3 { font-size: 18px !important; }
+  .singleblog__body > div[style*="border"] { padding: 18px 16px !important; }
+  .singleblog__nav { padding: 16px 18px 22px; }
+}
+
+@media (max-width: 600px) {
+  .singleblog__section { padding: 14px 0 36px; }
+  .singleblog__container { padding: 0 12px; }
+  .singleblog__content { border-radius: 14px; }
+  .singleblog__hero { aspect-ratio: 4 / 3; }
+  .singleblog__category-badge { font-size: 9px; padding: 3px 9px; top: 10px; left: 10px; }
+  .singleblog__hero-bottom { padding: 14px 14px 16px; }
+  .singleblog__title { font-size: 19px; }
+  .singleblog__body { padding: 16px 14px 20px; }
+  .singleblog__body li { font-size: 14px !important; }
+  .singleblog__body blockquote { font-size: 16px !important; padding: 10px 14px !important; }
+  .singleblog__body pre { font-size: 12.5px !important; padding: 14px 14px !important; }
+  .singleblog__body > div[style*="border"] { padding: 14px 14px !important; border-radius: 12px !important; }
+  .singleblog__body details { border-radius: 10px !important; }
+  .singleblog__body summary { padding: 13px 14px !important; font-size: 13px !important; }
+  .singleblog__nav { padding: 14px 14px 18px; }
+  .singleblog__sidebar { border-radius: 12px; padding: 0 12px; }
+}
+
+@media (max-width: 400px) {
+  .singleblog__hero { aspect-ratio: 1 / 1; }
+  .singleblog__title { font-size: 17px; }
+  .singleblog__meta-item { font-size: 11px; }
+  .singleblog__body { padding: 14px 12px 18px; font-size: 13.5px; }
+}
+
+/* ── Touch: disable hover transforms ── */
+@media (hover: none) {
+  .singleblog__back-btn:hover { transform: none; box-shadow: 0 5px 16px rgba(122, 31, 43, 0.22); }
+  .singleblog__viewall-btn:hover { transform: none; box-shadow: 0 4px 12px rgba(122, 31, 43, 0.22); }
+}

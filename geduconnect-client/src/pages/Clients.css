@@ -1,0 +1,415 @@
+/* ============================================================
+   CLIENTS.CSS — 3D Carousel · GEduConnect
+   Aesthetic: editorial luxury, deep perspective, crisp cards
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --cl-crimson:  #9B1C2E;
+  --cl-gold:     #C9922A;
+  --cl-navy:     #0D1B2A;
+  --cl-cream:    #F9F6F1;
+  --cl-muted:    #8A9BB0;
+  --cl-border:   rgba(201,146,42,0.2);
+  --cl-ease:     cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ════════════════════════════════════════
+   SECTION SHELL
+════════════════════════════════════════ */
+.cl-section {
+  padding: 36px 0 40px;
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(155, 28, 46, 0.12);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.04);
+}
+.cl-section--dark {
+  background: var(--cl-navy);
+  padding: 32px 6vw 36px;
+}
+
+/* ── HEADING ── */
+.cl-head {
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 0 6vw;
+}
+
+.cl-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cl-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cl-eyebrow::before,
+.cl-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--cl-gold);
+}
+.cl-eyebrow--light { color: var(--cl-gold); }
+
+.cl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--cl-navy);
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+.cl-title--light { color: #fff; }
+
+.cl-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #6B7A8D;
+  margin: 0;
+}
+
+/* ── MODE TABS ── */
+.cl-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 0 6vw;
+}
+
+.cl-tab {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 9px 26px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(155,28,46,0.25);
+  background: transparent;
+  color: #6B7A8D;
+  cursor: pointer;
+  transition: all 0.25s var(--cl-ease);
+}
+.cl-tab:hover {
+  border-color: var(--cl-crimson);
+  color: var(--cl-crimson);
+}
+.cl-tab--active {
+  background: var(--cl-crimson);
+  border-color: var(--cl-crimson);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(155,28,46,0.35);
+}
+
+/* ════════════════════════════════════════
+   3D CAROUSEL
+════════════════════════════════════════ */
+.c3d-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 4px;
+}
+
+.c3d-stage {
+  width: 100%;
+  height: 320px;
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.c3d-stage:active { cursor: grabbing; }
+
+.c3d-track {
+  position: relative;
+  width: 300px;
+  height: 260px;
+  transform-style: preserve-3d;
+}
+
+/* ── CARD ── */
+.c3d-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 260px;
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px 24px 24px;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.06),
+    0 12px 40px rgba(0,0,0,0.08);
+  transition:
+    transform 0.55s var(--cl-ease),
+    opacity   0.55s var(--cl-ease),
+    filter    0.55s var(--cl-ease),
+    box-shadow 0.3s ease;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.c3d-card--active {
+  background: var(--cl-cream);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.1),
+    0 32px 80px rgba(155,28,46,0.12),
+    inset 0 0 0 1px rgba(201,146,42,0.18);
+  cursor: pointer;
+}
+.c3d-card--active:hover {
+  box-shadow:
+    0 12px 48px rgba(0,0,0,0.14),
+    0 40px 100px rgba(155,28,46,0.18),
+    inset 0 0 0 1px rgba(201,146,42,0.3);
+  transform: translateX(0) translateZ(0) rotateY(0) scale(1.02) !important;
+}
+
+/* shimmer sweep on active card */
+.c3d-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255,255,255,0) 70%
+  );
+  background-size: 250% 250%;
+  animation: shimmerSlide 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shimmerSlide {
+  0%   { background-position: 200% 200%; }
+  50%  { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* ── LOGO ── */
+.c3d-logo-wrap {
+  width: 130px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.c3d-logo-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.c3d-logo-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cl-crimson), var(--cl-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── CARD INFO (active only) ── */
+.c3d-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  animation: infoFade 0.4s var(--cl-ease) forwards;
+}
+@keyframes infoFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.c3d-info h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cl-navy);
+  margin: 0;
+  line-height: 1.3;
+}
+.c3d-info span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--cl-muted);
+  font-weight: 400;
+}
+
+.c3d-cta {
+  margin-top: 8px;
+  padding: 7px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--cl-crimson);
+  background: transparent;
+  color: var(--cl-crimson);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.25s var(--cl-ease);
+}
+.c3d-cta:hover {
+  background: var(--cl-crimson);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(155,28,46,0.3);
+}
+
+/* ── DOTS + ARROWS ── */
+.c3d-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.c3d-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 360px;
+}
+
+.c3d-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(155,28,46,0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s var(--cl-ease);
+  flex-shrink: 0;
+}
+.c3d-dot.active {
+  background: var(--cl-crimson);
+  width: 24px;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(155,28,46,0.4);
+}
+
+.c3d-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.c3d-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cl-border);
+  background: #fff;
+  color: var(--cl-navy);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s var(--cl-ease);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.c3d-arrow:hover {
+  background: var(--cl-crimson);
+  border-color: var(--cl-crimson);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(155,28,46,0.35);
+  transform: scale(1.08);
+}
+
+/* ── EMPTY STATE ── */
+.cl-empty {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--cl-muted);
+  padding: 60px 0;
+  font-size: 0.95rem;
+}
+
+/* ════════════════════════════════════════
+   PARTNERS STRIP
+════════════════════════════════════════ */
+.cl-partner-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cl-partner-card {
+  width: 130px;
+  height: 72px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  transition: all 0.3s var(--cl-ease);
+}
+.cl-partner-card:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(201,146,42,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.cl-partner-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.cl-partner-card:hover img { opacity: 1; }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .c3d-stage {
+    height: 300px;
+    perspective: 900px;
+  }
+  .c3d-track,
+  .c3d-card {
+    width: 230px;
+    height: 250px;
+  }
+  .c3d-dot { width: 6px; height: 6px; }
+  .c3d-dot.active { width: 18px; }
+}

@@ -1,0 +1,803 @@
+[
+  {
+    "name": "Ahmedabad",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 1,
+    "is_active": 1
+  },
+  {
+    "name": "Ajmer",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 2,
+    "is_active": 1
+  },
+  {
+    "name": "Alika",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 3,
+    "is_active": 1
+  },
+  {
+    "name": "Alwar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 4,
+    "is_active": 1
+  },
+  {
+    "name": "Bangalore",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 5,
+    "is_active": 1
+  },
+  {
+    "name": "Bansur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 6,
+    "is_active": 1
+  },
+  {
+    "name": "Banswara",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 7,
+    "is_active": 1
+  },
+  {
+    "name": "Baran",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 8,
+    "is_active": 1
+  },
+  {
+    "name": "Barmer",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 9,
+    "is_active": 1
+  },
+  {
+    "name": "Bardhaman",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 10,
+    "is_active": 1
+  },
+  {
+    "name": "Beawar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 11,
+    "is_active": 1
+  },
+  {
+    "name": "Begusarai",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 12,
+    "is_active": 1
+  },
+  {
+    "name": "Behror",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 13,
+    "is_active": 1
+  },
+  {
+    "name": "Bharatpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 14,
+    "is_active": 1
+  },
+  {
+    "name": "Bhilwara",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 15,
+    "is_active": 1
+  },
+  {
+    "name": "Bhiwani",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 16,
+    "is_active": 1
+  },
+  {
+    "name": "Bikaner",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 17,
+    "is_active": 1
+  },
+  {
+    "name": "Bisrakh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 18,
+    "is_active": 1
+  },
+  {
+    "name": "Bulandshahr",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 19,
+    "is_active": 1
+  },
+  {
+    "name": "Bundi",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 20,
+    "is_active": 1
+  },
+  {
+    "name": "Charkhi Dadri",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 21,
+    "is_active": 1
+  },
+  {
+    "name": "Chittorgarh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 22,
+    "is_active": 1
+  },
+  {
+    "name": "Churu",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 23,
+    "is_active": 1
+  },
+  {
+    "name": "Dausa",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 24,
+    "is_active": 1
+  },
+  {
+    "name": "Deeg",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 25,
+    "is_active": 1
+  },
+  {
+    "name": "Dehradun",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 26,
+    "is_active": 1
+  },
+  {
+    "name": "Delhi",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 27,
+    "is_active": 1
+  },
+  {
+    "name": "Didwana Kuchaman",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 28,
+    "is_active": 1
+  },
+  {
+    "name": "Dholpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 29,
+    "is_active": 1
+  },
+  {
+    "name": "Dungarpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 30,
+    "is_active": 1
+  },
+  {
+    "name": "Dwarka",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 31,
+    "is_active": 1
+  },
+  {
+    "name": "Ghaziabad",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 32,
+    "is_active": 1
+  },
+  {
+    "name": "Girwa",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 33,
+    "is_active": 1
+  },
+  {
+    "name": "Gorakhpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 34,
+    "is_active": 1
+  },
+  {
+    "name": "Gorifa",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 35,
+    "is_active": 1
+  },
+  {
+    "name": "Gwalior",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 36,
+    "is_active": 1
+  },
+  {
+    "name": "Hanumangarh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 37,
+    "is_active": 1
+  },
+  {
+    "name": "Haridwar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 38,
+    "is_active": 1
+  },
+  {
+    "name": "Hisar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 39,
+    "is_active": 1
+  },
+  {
+    "name": "Jaisalmer",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 40,
+    "is_active": 1
+  },
+  {
+    "name": "Jalore",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 41,
+    "is_active": 1
+  },
+  {
+    "name": "Jaipur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 42,
+    "is_active": 1
+  },
+  {
+    "name": "Jhalawar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 43,
+    "is_active": 1
+  },
+  {
+    "name": "Jhajjar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 44,
+    "is_active": 1
+  },
+  {
+    "name": "Jhunjhunu",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 45,
+    "is_active": 1
+  },
+  {
+    "name": "Jind",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 46,
+    "is_active": 1
+  },
+  {
+    "name": "Jodhpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 47,
+    "is_active": 1
+  },
+  {
+    "name": "Junagadh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 48,
+    "is_active": 1
+  },
+  {
+    "name": "Kanore",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 49,
+    "is_active": 1
+  },
+  {
+    "name": "Kanpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 50,
+    "is_active": 1
+  },
+  {
+    "name": "Karauli",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 51,
+    "is_active": 1
+  },
+  {
+    "name": "Khairthal Tijara",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 52,
+    "is_active": 1
+  },
+  {
+    "name": "Khatu",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 53,
+    "is_active": 1
+  },
+  {
+    "name": "Kolkata",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 54,
+    "is_active": 1
+  },
+  {
+    "name": "Kota",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 55,
+    "is_active": 1
+  },
+  {
+    "name": "Kotputli",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 56,
+    "is_active": 1
+  },
+  {
+    "name": "Kotputli Behror",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 57,
+    "is_active": 1
+  },
+  {
+    "name": "Lucknow",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 58,
+    "is_active": 1
+  },
+  {
+    "name": "Mahendergarh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 59,
+    "is_active": 1
+  },
+  {
+    "name": "Malad",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 60,
+    "is_active": 1
+  },
+  {
+    "name": "Moradabad",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 61,
+    "is_active": 1
+  },
+  {
+    "name": "Nagaur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 62,
+    "is_active": 1
+  },
+  {
+    "name": "Narnaul",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 63,
+    "is_active": 1
+  },
+  {
+    "name": "New Delhi",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 64,
+    "is_active": 1
+  },
+  {
+    "name": "Noida",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 65,
+    "is_active": 1
+  },
+  {
+    "name": "North 24 Parganas",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 66,
+    "is_active": 1
+  },
+  {
+    "name": "Nuh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 67,
+    "is_active": 1
+  },
+  {
+    "name": "Pali",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 68,
+    "is_active": 1
+  },
+  {
+    "name": "Phalodi",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 69,
+    "is_active": 1
+  },
+  {
+    "name": "Pilibhit",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 70,
+    "is_active": 1
+  },
+  {
+    "name": "Port Blair",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 71,
+    "is_active": 1
+  },
+  {
+    "name": "Pratapgarh",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 72,
+    "is_active": 1
+  },
+  {
+    "name": "Rajkot",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 73,
+    "is_active": 1
+  },
+  {
+    "name": "Rajsamand",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 74,
+    "is_active": 1
+  },
+  {
+    "name": "Rewari",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 75,
+    "is_active": 1
+  },
+  {
+    "name": "Rourkela",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 76,
+    "is_active": 1
+  },
+  {
+    "name": "Sawai Madhopur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 77,
+    "is_active": 1
+  },
+  {
+    "name": "Sikar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 78,
+    "is_active": 1
+  },
+  {
+    "name": "Sirohi",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 79,
+    "is_active": 1
+  },
+  {
+    "name": "Sri Ganganagar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 80,
+    "is_active": 1
+  },
+  {
+    "name": "Sonipat",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 81,
+    "is_active": 1
+  },
+  {
+    "name": "Surat",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 82,
+    "is_active": 1
+  },
+  {
+    "name": "Tijara",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 83,
+    "is_active": 1
+  },
+  {
+    "name": "Tonk",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 84,
+    "is_active": 1
+  },
+  {
+    "name": "Udaipur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 85,
+    "is_active": 1
+  },
+  {
+    "name": "Ujjain",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 86,
+    "is_active": 1
+  },
+  {
+    "name": "Vadodara",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 87,
+    "is_active": 1
+  },
+  {
+    "name": "Wazirpur",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 88,
+    "is_active": 1
+  },
+  {
+    "name": "Yamunanagar",
+    "state_name": "",
+    "lat": null,
+    "lng": null,
+    "consultant_count": 0,
+    "sort_order": 89,
+    "is_active": 1
+  }
+]

@@ -1,0 +1,708 @@
+/* =========================================================
+   NAVBAR — ELEVATED PREMIUM EDITION
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --primary:       #7a1f2b;
+  --primary-dark:  #5f1d2b;
+  --primary-glow:  rgba(122, 31, 43, 0.15);
+  --gold:          #c9922a;
+  --gold-light:    #e8b55a;
+  --text:          #0f172a;
+  --muted:         #64748b;
+  --white:         #ffffff;
+  --nav-blur:      rgba(255, 255, 255, 0.94);
+  --border:        rgba(122, 31, 43, 0.08);
+  --shadow-soft:   0 8px 40px rgba(0, 0, 0, 0.07);
+  --radius-pill:   999px;
+  --radius-card:   20px;
+  --transition:    0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   NAVBAR BASE
+========================================================= */
+
+.nav-bottom {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 32px;
+  height: 76px;
+  background: var(--nav-blur);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition);
+  z-index: 9999;
+}
+
+.nav-bottom::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, var(--primary), var(--gold));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.nav-bottom.sticky::before { opacity: 1; }
+
+/* =========================================================
+   STICKY
+========================================================= */
+
+.nav-bottom.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  box-shadow: var(--shadow-soft);
+  animation: navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes navSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-wrap {
+  width: 160px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10001;
+}
+
+.logo-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-wrap:hover img {
+  transform: scale(1.04) translateY(-1px);
+  filter: drop-shadow(0 4px 12px var(--primary-glow));
+}
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+#menuToggle {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 22px;
+  z-index: 10001;
+  background: rgba(122, 31, 43, 0.06);
+  border: 1px solid var(--border);
+  transition: background var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+
+#menuToggle:hover {
+  background: rgba(122, 31, 43, 0.12);
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   MENU WRAPPER — DESKTOP
+========================================================= */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.menu > ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.menu > ul > li {
+  position: relative;
+}
+
+/* =========================================================
+   NAV LINKS — DESKTOP
+========================================================= */
+
+.menu ul li a,
+.submenu-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 10px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.menu > ul > li > a:hover,
+.submenu-title:hover {
+  color: var(--primary);
+  background: rgba(122, 31, 43, 0.055);
+  transform: translateY(-1px);
+}
+
+/* no ::before underline — nav-roll handles this */
+.menu > ul > li > a::before {
+  display: none !important;
+}
+
+/* =========================================================
+   SUBMENU TRIGGER
+========================================================= */
+
+.has-submenu { position: relative; }
+
+.submenu-title {
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-icon {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  transition: transform 0.35s ease, color 0.35s ease;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.toggle-icon.open {
+  transform: rotate(45deg);
+  color: var(--primary);
+}
+
+/* =========================================================
+   DROPDOWN PANEL
+========================================================= */
+
+.menu .submenu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.97);
+  min-width: 240px;
+  padding: 10px 8px;
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.03),
+    0 20px 50px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.menu .submenu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.has-submenu:hover .submenu,
+.menu .submenu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =========================================================
+   DROPDOWN ITEMS
+========================================================= */
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+}
+
+.submenu li a::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.25s ease;
+}
+
+.submenu li a:hover {
+  background: linear-gradient(90deg, rgba(122,31,43,0.05), rgba(201,146,42,0.05));
+  color: var(--primary);
+  padding-left: 18px;
+}
+
+.submenu li a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.submenu li + li {
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.cta {
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.cta a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--primary) 0%, #9e2535 50%, var(--gold) 100%);
+  background-size: 200% 200%;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow:
+    0 4px 15px rgba(122, 31, 43, 0.28),
+    0 1px 3px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(255,255,255,0.15) inset;
+  transition: transform var(--transition), box-shadow var(--transition), background-position var(--transition);
+}
+
+.cta a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.65s ease;
+}
+
+.cta a:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 8px 25px rgba(122, 31, 43, 0.35),
+    0 2px 6px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(255,255,255,0.2) inset;
+  background-position: right center;
+}
+
+.cta a:hover::before { left: 140%; }
+.cta a:active { transform: translateY(0) scale(0.99); }
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 5, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9998;
+  animation: overlayIn 0.3s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* =========================================================
+   NAV ROLL — DISABLED, plain text only
+========================================================= */
+
+/* Flatten the roll wrapper — show only the first span */
+.menu > ul > li > a.nav-roll {
+  overflow: hidden;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  height: auto;
+}
+
+.nav-roll-inner {
+  display: flex;
+  flex-direction: column;
+  transform: none !important;
+  transition: none !important;
+}
+
+.nav-roll span {
+  height: 20px;
+  line-height: 20px;
+  white-space: nowrap;
+  font: inherit;
+}
+
+/* Show only the normal text, hide the hover duplicate */
+.nav-text        { color: var(--text); }
+.nav-text-hover  { display: none; }
+
+/* No underline pseudo */
+.nav-roll span::after { display: none; }
+
+/* Hover: just color change like a normal link */
+.menu > ul > li > a.nav-roll:hover {
+  color: var(--primary);
+}
+
+.menu > ul > li > a.nav-roll:hover .nav-text {
+  color: var(--primary);
+}
+
+/* Dropdown title — same treatment */
+.services-roll,
+.resources-roll {
+  pointer-events: none;
+}
+
+.submenu-title .nav-roll {
+  overflow: hidden;
+  height: auto;
+}
+
+.submenu-title .nav-roll span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.submenu-title:hover .nav-roll-inner {
+  transform: none !important;
+}
+
+/* =========================================================
+   MOBILE  (≤ 768px)
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ── Navbar bar ── */
+  .nav-bottom {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  /* ── Logo: visible normally, hidden when drawer is open ── */
+  .logo-wrap {
+    display: block;
+    width: 140px;
+    z-index: 10002;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .logo-wrap.menu-open {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* ── Hamburger always above the drawer ── */
+  #menuToggle {
+    display: flex;
+    position: relative;
+    z-index: 10001;
+  }
+
+  /* ── Drawer panel — FULL SCREEN ── */
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 72px 0 40px;
+    overflow-y: auto;
+    gap: 0;
+    border-left: none;
+    box-shadow: none;
+    transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 9999;
+  }
+
+  .menu.open {
+    right: 0;
+  }
+
+  /* ── No duplicate logo in drawer — hide it completely ── */
+  .mobile-menu-header {
+    display: none;
+  }
+
+  /* ── Nav item list ── */
+  .menu > ul {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 16px;
+  }
+
+  .menu > ul > li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* ── ALL rows: uniform 58px height, same padding ── */
+  .menu ul li a,
+  .submenu-title {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    height: 58px;
+    min-height: 58px;
+    border-radius: 0;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transform: none !important;
+    background: transparent !important;
+  }
+
+  /* ── Nav roll: animation already disabled globally, just ensure proper height ── */
+  .menu > ul > li > a.nav-roll {
+    height: 58px;
+    display: flex;
+    align-items: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .submenu-title .nav-roll {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Toggle icon ── */
+  .toggle-icon {
+    font-size: 18px;
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  /* ── Mobile submenus — accordion, hidden by default ── */
+  .menu .submenu {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100%;
+    min-width: 100%;
+    background: rgba(248, 244, 244, 0.6);
+    border: none;
+    border-radius: 14px;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 8px;
+    margin-bottom: 0;
+    transition:
+      max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity    0.28s ease,
+      padding    0.38s ease,
+      margin     0.38s ease;
+  }
+
+  .menu .submenu.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: 600px;
+    padding: 6px 8px 10px;
+    margin-bottom: 8px;
+  }
+
+  .menu .submenu::before {
+    display: none;
+  }
+
+  /* override desktop hover trigger on mobile */
+  .has-submenu:hover .submenu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    padding: 0 8px;
+    margin-bottom: 0;
+  }
+
+  .has-submenu:hover .submenu.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: 600px;
+    padding: 6px 8px 10px;
+    margin-bottom: 8px;
+  }
+
+  .submenu li + li {
+    border-top: none;
+  }
+
+  .submenu li a {
+    padding: 12px 12px;
+    font-size: 13.5px;
+    border-radius: 10px;
+    font-weight: 500;
+    white-space: normal;
+    height: auto;
+    min-height: auto;
+    transform: none !important;
+    background: transparent !important;
+  }
+
+  .submenu li a:hover {
+    padding-left: 14px;
+    background: rgba(122,31,43,0.04) !important;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    width: 100%;
+    padding: 16px 20px 0;
+    margin-left: 0;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .cta a {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES (≤ 380px)
+========================================================= */
+
+@media (max-width: 380px) {
+  .nav-bottom {
+    padding: 0 14px;
+    height: 58px;
+  }
+
+  .logo-wrap {
+    width: 120px;
+  }
+
+  #menuToggle {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .menu {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .menu ul li a,
+  .submenu-title {
+    font-size: 14px;
+    height: 52px;
+    min-height: 52px;
+  }
+
+  .cta a {
+    font-size: 13px;
+    padding: 13px 20px;
+  }
+}

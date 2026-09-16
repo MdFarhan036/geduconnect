@@ -1,0 +1,111 @@
+import { MapContainer, GeoJSON, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+import L from "leaflet";
+
+/* Fix default marker icon issue */
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+});
+
+/* City Data */
+const cities = [
+  { name: "Jaipur", lat: 26.9124, lng: 75.7873, count: 50 },
+  { name: "Mumbai", lat: 19.0760, lng: 72.8777, count: 70 },
+  { name: "Delhi", lat: 28.7041, lng: 77.1025, count: 90 },
+  { name: "Ahmedabad", lat: 23.0225, lng: 72.5714, count: 40 },
+  { name: "Bangalore", lat: 12.9716, lng: 77.5946, count: 60 },
+];
+
+export default function IndiaDashboard() {
+  const [indiaData, setIndiaData] = useState(null);
+
+  useEffect(() => {
+    fetch("/india.json")
+      .then((res) => res.json())
+      .then((data) => setIndiaData(data))
+      .catch((err) => console.error("GeoJSON load error:", err));
+  }, []);
+
+  const totalConsultants = cities.reduce(
+    (sum, city) => sum + city.count,
+    0
+  );
+
+  return (
+    <div className="india-dashboard">
+
+      {/* ================= LEFT MAP ================= */}
+      <div className="map-section">
+        <MapContainer
+          center={[22.5, 79]}
+          zoom={5}
+          style={{ height: "100%", width: "100%" }}
+          zoomControl={true}
+          scrollWheelZoom={true}
+          dragging={true}
+          maxBounds={[
+            [6.5, 68],
+            [37.5, 97],
+          ]}
+          maxBoundsViscosity={1.0}
+        >
+          {/* INDIA SHAPE */}
+          {indiaData && (
+            <GeoJSON
+              data={indiaData}
+              style={{
+                fillColor: "#e3f2fd",
+                fillOpacity: 1,
+                color: "#1565c0",
+                weight: 1,
+              }}
+            />
+          )}
+
+          {/* CITY MARKERS */}
+          {cities.map((city, index) => (
+            <Marker key={index} position={[city.lat, city.lng]}>
+              <Popup>
+                <strong>{city.name}</strong>
+                <br />
+                Consultants: {city.count}
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
+
+      {/* ================= RIGHT SUMMARY ================= */}
+      <div className="summary-section">
+        <h2>Consultant Network Overview</h2>
+
+        <div className="summary-card highlight">
+          <h3>Total Consultants</h3>
+          <p>{totalConsultants}</p>
+        </div>
+
+        <div className="summary-card">
+          <h3>Total Cities</h3>
+          <p>{cities.length}</p>
+        </div>
+
+        <div className="city-list">
+          <h3>City Breakdown</h3>
+          {cities.map((city, index) => (
+            <div key={index} className="city-item">
+              <span>{city.name}</span>
+              <strong>{city.count}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

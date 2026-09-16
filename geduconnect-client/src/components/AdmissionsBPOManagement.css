@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.admbpo {
+  width: 100%;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #faf7f4 0%,
+      #ffffff 100%
+    );
+
+  font-family: 'Inter', sans-serif;
+
+  color: #1f1f1f;
+}
+
+.admbpo * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.admbpo .main-container {
+  width: min(1280px, 92%);
+  margin: 0 auto;
+
+  padding:
+    80px
+    0
+    60px;
+}
+
+.admbpo .inner-hero {
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.admbpo .inner-hero-left {
+  position: relative;
+}
+
+.admbpo .hero-title-txt {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      46px,
+      5vw,
+      82px
+    );
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+
+  color: #240f14;
+
+  margin-bottom: 30px;
+}
+
+.admbpo .comm-para p {
+  font-size: 17px;
+
+  line-height: 2;
+
+  color: #5d5a5c;
+
+  margin: 0;
+}
+
+.admbpo .inner-hero-right img {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 34px;
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.admbpo .comm-section {
+  padding:
+    40px
+    0
+    100px;
+}
+
+.admbpo .container-small {
+  width: min(1220px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   STEPS WRAP
+========================================================= */
+
+.admbpo .adm-proc-steps-wrap {
+  display: flex;
+  flex-direction: column;
+
+  gap: 50px;
+}
+
+/* =========================================================
+   STEP CARD
+========================================================= */
+
+.admbpo .adm-proc-steps {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  gap: 50px;
+
+  align-items: center;
+
+  padding: 42px;
+
+  border-radius: 34px;
+
+  background:
+    rgba(255,255,255,0.82);
+
+  border:
+    1px solid rgba(122,31,43,0.08);
+
+  backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.admbpo .adm-proc-steps:hover {
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   ALTERNATE LAYOUT
+========================================================= */
+
+.admbpo .adm-proc-steps:nth-child(even) {
+  grid-template-columns:
+    0.95fr
+    1.05fr;
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.admbpo .adm-step-title {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      30px,
+      3vw,
+      52px
+    );
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  color: #240f14;
+
+  margin-bottom: 24px;
+}
+
+.admbpo .adm-proc-step-left .comm-para p {
+  font-size: 16px;
+
+  line-height: 1.95;
+
+  color: #666;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.admbpo .adm-img {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+
+.admbpo .adm-img img {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 28px;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease;
+}
+
+.admbpo .adm-proc-steps:hover .adm-img img {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   DECORATIVE GLOW
+========================================================= */
+
+.admbpo .adm-proc-steps::before {
+  content: "";
+
+  position: absolute;
+
+  top: -120px;
+  right: -120px;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      rgba(122,31,43,0.06),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .admbpo .inner-hero,
+  .admbpo .adm-proc-steps,
+  .admbpo .adm-proc-steps:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .admbpo .main-container {
+    padding:
+      60px
+      0
+      40px;
+  }
+
+  .admbpo .hero-title-txt {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+  }
+
+  .admbpo .comm-para p,
+  .admbpo .adm-proc-step-left .comm-para p {
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+  .admbpo .adm-proc-steps {
+    padding: 24px;
+
+    gap: 28px;
+
+    border-radius: 24px;
+  }
+
+  .admbpo .adm-step-title {
+    font-size: 36px;
+  }
+
+  .admbpo .inner-hero-right img,
+  .admbpo .adm-img,
+  .admbpo .adm-img img {
+    border-radius: 22px;
+  }
+
+}

@@ -1,0 +1,182 @@
+/* ============================================================
+   HIGHLIGHTS.CSS
+   Matches design: dark cinematic bg image, bold white stats,
+   centered heading, horizontal stat row with dividers
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap');
+
+/* ── SECTION SHELL ── */
+.hl-section {
+  position: relative;
+  background-color: #0d1b2a;          /* fallback if no bg image */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;        /* parallax */
+  padding: 72px 6vw 64px;
+  overflow: hidden;
+}
+
+/* Dark overlay — ensures text stays legible over any CMS image */
+.hl-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 12, 20, 0.78) 0%,
+    rgba(10, 20, 35, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+/* Grain texture for cinematic depth */
+.hl-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+  pointer-events: none;
+}
+
+/* Content above overlays */
+.hl-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ── HEADING BLOCK ── */
+.hl-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hl-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;                    /* Bebas Neue is inherently bold */
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+
+.hl-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.hl-title-rule {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #9B1C2E, #C9922A);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* ── STATS ROW ── */
+.hl-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0;
+}
+
+.hl-stat {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 120px;
+  opacity: 0;
+  animation: hlFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes hlFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* vertical divider between stats */
+.hl-sep {
+  width: 1px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+.hl-stat-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px;
+  transition: transform 0.3s ease;
+}
+.hl-stat-inner:hover { transform: translateY(-3px); }
+
+/* ── NUMBER ── */
+.hl-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+
+/* ── LABEL ── */
+.hl-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.6rem, 0.9vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hl-section {
+    padding: 52px 5vw 48px;
+    background-attachment: scroll;    /* parallax off on mobile */
+  }
+
+  .hl-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 0;
+  }
+
+  .hl-sep { display: none; }
+
+  .hl-stat {
+    justify-content: center;
+    border-right: none;
+  }
+
+  .hl-stat-inner { padding: 0 12px; }
+}
+
+@media (max-width: 420px) {
+  .hl-stats { grid-template-columns: 1fr; gap: 24px; }
+}

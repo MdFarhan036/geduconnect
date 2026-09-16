@@ -1,0 +1,387 @@
+/* =====================================================
+   1. RESET & GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    transition: .25s;
+}
+
+
+/* =====================================================
+   2. NAVBAR
+===================================================== */
+
+.nav-top {
+    background: #892c40;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.nav-top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bottom {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.nav-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo-wrap {
+    width: 160px;
+}
+
+.logo-wrap img {
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    font-weight: 500;
+    font-size: 15px;
+    color: #333;
+    padding: 6px 0;
+    position: relative;
+}
+
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #892c40;
+    transition: .3s;
+}
+
+.menu li a:hover {
+    color: #892c40;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+
+/* dropdown */
+
+.submenu {
+    position: absolute;
+    top: 130%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: .25s;
+}
+
+.menu li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   3. HERO / BANNER
+===================================================== */
+
+.banner-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.banner-left,
+.banner-right {
+    flex: 1;
+}
+
+.banner-content h1 {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.banner-content h3 {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.cta a {
+    display: inline-block;
+    background: #892c40;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.cta a:hover {
+    background: #5F1D2B;
+}
+
+
+/* =====================================================
+   4. ABOUT
+===================================================== */
+
+.about-us {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content,
+.about-img {
+    flex: 1;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5F1D2B;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   5. SERVICES
+===================================================== */
+
+
+/* =====================================================
+   6. TESTIMONIAL
+===================================================== */
+
+.test-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.test-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+
+/* =====================================================
+   7. FORM + FAQ
+===================================================== */
+
+.info-wrap {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 40px;
+}
+
+.form-wrap {
+    background: #fff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.contact-form input,
+.contact-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(to right, #892c40, #5F1D2B);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   8. BLOG
+===================================================== */
+
+.blog-section {
+    background: #f6f7fb;
+    padding: 80px 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    transition: .3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   9. GALLERY
+===================================================== */
+
+.gallery-masonry {
+    column-count: 4;
+    column-gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-masonry img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    break-inside: avoid;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+    transition: .3s;
+}
+
+.gallery-masonry img:hover {
+    transform: scale(1.03);
+}
+
+
+/* =====================================================
+   10. FOOTER
+===================================================== */
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.footer-botm {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 15px 0;
+}
+
+
+/* =====================================================
+   11. LIGHTBOX
+===================================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lb-img {
+    max-width: 90%;
+    max-height: 85vh;
+}
+
+
+/* =====================================================
+   12. RESPONSIVE
+===================================================== */
+
+@media(max-width:992px) {
+    .about-us,
+    .banner-wrap,
+    .info-wrap {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .menu {
+        display: none;
+    }
+    .gallery-masonry {
+        column-count: 2;
+    }
+}
+
+@media(max-width:600px) {
+    .gallery-masonry {
+        column-count: 1;
+    }
+}

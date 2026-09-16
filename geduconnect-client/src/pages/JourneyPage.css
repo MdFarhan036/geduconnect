@@ -1,0 +1,514 @@
+/* =========================================================
+   ULTRA PREMIUM JOURNEY SECTION
+   (Tightened spacing version)
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.journey-snake {
+    position: relative;
+
+    padding: 44px 0;            /* was 70px 0 */
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(122,31,43,0.04),
+            transparent 24%
+        ),
+
+        linear-gradient(
+            180deg,
+            #faf8f9 0%,
+            #ffffff 100%
+        );
+}
+
+/* subtle mesh texture */
+
+.journey-snake::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(122,31,43,0.05) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    pointer-events: none;
+
+    opacity: 0.6;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.journey-container {
+    position: relative;
+
+    max-width: 1440px;
+
+    margin: 0 auto;
+
+    padding: 0 48px;            /* was 60px */
+
+    z-index: 2;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.journey-header {
+    text-align: center;
+
+    margin-bottom: 24px;        /* was 40px */
+}
+
+.journey-header h2 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(28px, 3.6vw, 46px);   /* slightly smaller top end */
+
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    letter-spacing: -1px;
+
+    color: #14070b;
+
+    margin: 0 0 8px;            /* was 10px */
+}
+
+.journey-header p {
+    font-size: 14px;            /* was 15px */
+
+    line-height: 1.6;           /* was 1.7 */
+
+    max-width: 520px;
+
+    margin: 0 auto;
+}
+
+/* =========================================================
+   SCROLL WRAPPER
+========================================================= */
+
+.snake-scroll-wrapper {
+    position: relative;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    cursor: grab;
+
+    scroll-behavior: smooth;
+
+    padding-bottom: 30px;       /* was 60px */
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.snake-scroll-wrapper.active {
+    cursor: grabbing;
+}
+
+.snake-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================================================
+   TIMELINE TRACK
+========================================================= */
+
+.snake-row {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;                  /* was 45px */
+
+    width: max-content;
+
+    padding: 36px 48px 24px;    /* was 60px 70px 40px */
+}
+
+/* =========================================================
+   PREMIUM CURVED LINE
+========================================================= */
+
+.snake-row::before {
+    top: 48%;
+
+    height: 3px;
+}
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.snake-item {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    animation:
+        floatCard 7s ease-in-out infinite;
+}
+
+/* stagger floating */
+
+.snake-item:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.snake-item:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.snake-item:nth-child(4) {
+    animation-delay: 3s;
+}
+
+.snake-item:nth-child(5) {
+    animation-delay: 4s;
+}
+
+@keyframes floatCard {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);    /* was -10px */
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* =========================================================
+   DOT
+========================================================= */
+
+.snake-dot {
+    position: relative;
+
+    width: 18px;                /* was 22px */
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7a1f2b,
+            #c9922a
+        );
+
+    margin-bottom: 20px;        /* was 34px */
+
+    z-index: 3;
+
+    box-shadow:
+        0 0 0 8px rgba(122,31,43,0.10),
+        0 10px 24px rgba(122,31,43,0.28);
+}
+
+/* pulse ring */
+
+.snake-dot::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -10px;               /* was -12px */
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(122,31,43,0.25);
+
+    animation:
+        pulseDot 3s infinite;
+}
+
+@keyframes pulseDot {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.snake-card {
+    position: relative;
+
+    width: 210px;               /* was 220px */
+
+    min-height: 156px;          /* was 180px */
+
+    padding: 18px 18px;         /* was 24px 22px */
+
+    border-radius: 18px;        /* was 22px */
+
+    overflow: hidden;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.92),
+            rgba(255,255,255,0.84)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* glow */
+
+.snake-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(122,31,43,0.10),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+}
+
+/* hover */
+
+.snake-card:hover {
+    transform:
+        translateY(-10px)       /* was -14px */
+        rotateX(4deg);
+
+    border-color:
+        rgba(201,146,42,0.45);
+
+    box-shadow:
+        0 28px 60px rgba(122,31,43,0.16),
+        0 8px 20px rgba(0,0,0,0.06);
+}
+
+.snake-card:hover::before {
+    opacity: 1;
+}
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.snake-card .year {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 6px 12px;          /* was 10px 16px */
+
+    border-radius: 999px;
+
+    background:
+        rgba(122,31,43,0.08);
+
+    color: #7a1f2b;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 12px;            /* was 13px */
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    margin-bottom: 10px;        /* was 18px */
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.snake-card h4 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 20px;            /* was 22px */
+
+    line-height: 1.15;
+
+    color: #14070b;
+
+    margin: 0 0 8px;            /* was 12px */
+
+    word-break: break-word;
+}
+
+.snake-card:hover h4 {
+    color: #7a1f2b;
+
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.snake-card p {
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;            /* was 14px */
+
+    line-height: 1.55;          /* was 1.6 */
+
+    color: #6b7280;
+
+    margin: 0;
+
+    word-break: break-word;
+}
+
+/* =========================================================
+   PREMIUM EDGE FADES
+========================================================= */
+
+.snake-scroll-wrapper::before,
+.snake-scroll-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 90px;                /* was 120px */
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.snake-scroll-wrapper::before {
+    left: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #faf8f9,
+            transparent
+        );
+}
+
+.snake-scroll-wrapper::after {
+    right: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            #faf8f9,
+            transparent
+        );
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 768px) {
+
+    .journey-snake {
+        padding: 32px 0;        /* was 50px 0 */
+    }
+
+    .journey-container {
+        padding: 0 20px;
+    }
+
+    .journey-header {
+        margin-bottom: 18px;
+    }
+
+    .snake-scroll-wrapper {
+        padding-bottom: 20px;
+    }
+
+    .snake-row {
+        gap: 18px;              /* was 24px */
+
+        padding:
+            28px 20px 20px;     /* was 50px 30px 30px */
+    }
+
+    .snake-dot {
+        margin-bottom: 16px;
+    }
+
+    .snake-card {
+        width: 170px;           /* was 180px */
+
+        min-height: 134px;      /* was 150px */
+
+        padding:
+            14px 14px;          /* was 18px 16px */
+    }
+
+    .snake-card h4 {
+        font-size: 17px;        /* was 18px */
+    }
+
+}

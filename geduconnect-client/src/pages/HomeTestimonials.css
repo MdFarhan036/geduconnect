@@ -1,0 +1,339 @@
+/* =========================================================
+   HOME TESTIMONIALS — CINEMATIC LUXURY
+   Seamless marquee fix:
+     card width  = 300px  (flex: 0 0 300px)
+     gap         =  20px
+     slot total  = 320px  ← must match CARD_SLOT in JSX
+   Animation translates by exactly (card-count × 320px) = one full set
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.home-testimonials {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f9 100%);
+}
+
+/* =========================================================
+   ANIMATED GRID
+========================================================= */
+
+.home-testimonials::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(122,31,43,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,31,43,0.03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.5;
+    animation: htGridMove 18s linear infinite;
+}
+
+@keyframes htGridMove {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(42px); }
+}
+
+/* =========================================================
+   GLOWS
+========================================================= */
+
+.ht-bg {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    animation: htOrb 8s ease-in-out infinite;
+}
+
+.ht-bg-one {
+    width: 260px;
+    height: 260px;
+    background: rgba(122,31,43,0.10);
+    top: -80px;
+    left: -80px;
+}
+
+.ht-bg-two {
+    width: 220px;
+    height: 220px;
+    background: rgba(201,146,42,0.10);
+    bottom: -70px;
+    right: -70px;
+    animation-delay: 2s;
+}
+
+@keyframes htOrb {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-24px); }
+    100% { transform: translateY(0px); }
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ht-container {
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+    z-index: 2;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ht-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.ht-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(122,31,43,0.08);
+    border: 1px solid rgba(122,31,43,0.10);
+    backdrop-filter: blur(12px);
+    color: #7a1f2b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(122,31,43,0.08);
+}
+
+.ht-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 3.5vw, 56px);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #12070b;
+    margin: 0 0 12px;
+}
+
+.ht-header p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #6b7280;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   MARQUEE WRAPPER
+========================================================= */
+
+.ht-marquee-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        #000 8%,
+        #000 92%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        #000 8%,
+        #000 92%,
+        transparent 100%
+    );
+}
+
+/* =========================================================
+   MARQUEE TRACK — KEY FIX
+   
+   Uses CSS custom properties set from JSX:
+     --card-count  number of original cards (e.g. 4)
+     --card-slot   card width + gap as a px value (e.g. 320px)
+
+   The animation translates by exactly ONE full set width:
+     translateX(calc(-1 * var(--card-count) * var(--card-slot)))
+
+   Because we render 3× the cards, when set-1 scrolls out,
+   set-2 is already in place — zero gap, zero jump.
+
+   gap must equal (--card-slot minus card flex-basis):
+     320px slot − 300px card = 20px gap  ✓
+========================================================= */
+
+.ht-marquee-track {
+    display: flex;
+    gap: 20px;                    /* ← must equal --card-slot minus card width */
+    width: max-content;
+    animation: htMarquee calc(var(--card-count, 4) * 3.5s) linear infinite;
+    will-change: transform;
+}
+
+.ht-marquee-wrapper:hover .ht-marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes htMarquee {
+    0%   { transform: translateX(0); }
+    100% {
+        /* Scroll exactly one set: card-count × (300px card + 20px gap) */
+        transform: translateX(
+            calc(-1 * var(--card-count, 4) * var(--card-slot, 320px))
+        );
+    }
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.ht-card {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 300px;              /* ← card width; slot = 300 + 20gap = 320px */
+    border-radius: 20px;
+    padding: 22px 20px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(122,31,43,0.08);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.05);
+    transition:
+        transform 0.45s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.ht-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,146,42,0.18);
+    box-shadow: 0 20px 50px rgba(122,31,43,0.10);
+}
+
+.ht-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(122,31,43,0.10), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.ht-card:hover .ht-card-glow {
+    opacity: 1;
+}
+
+/* =========================================================
+   QUOTE MARK
+========================================================= */
+
+.ht-quote {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 72px;
+    line-height: 1;
+    color: rgba(122,31,43,0.08);
+    font-family: 'Cormorant Garamond', serif;
+    pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.ht-content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 18px;
+}
+
+.ht-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.ht-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ht-avatar {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7a1f2b, #c9922a);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(122,31,43,0.18);
+}
+
+.ht-user h4 {
+    margin: 0 0 3px;
+    font-size: 15px;
+    color: #14070b;
+}
+
+.ht-user span {
+    display: block;
+    font-size: 12px;
+    color: #7a1f2b;
+    margin-bottom: 2px;
+}
+
+.ht-user small {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+    .home-testimonials {
+        padding: 36px 0;
+    }
+
+    .ht-container {
+        padding: 0 20px;
+    }
+
+    .ht-header h2 {
+        font-size: 36px;
+    }
+
+    /* On mobile, card is narrower — update slot accordingly */
+    .ht-card {
+        flex: 0 0 260px;           /* card width = 260px */
+        padding: 18px 16px;
+    }
+
+    /* Override --card-slot for mobile: 260px + 20px gap = 280px */
+    .ht-marquee-track {
+        --card-slot: 280px;
+    }
+
+    .ht-content p {
+        font-size: 13px;
+    }
+}

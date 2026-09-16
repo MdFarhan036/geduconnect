@@ -1,0 +1,352 @@
+/* =========================================================
+   HEADER — CINEMATIC PREMIUM VERSION
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   RESET
+========================================================= */
+
+a {
+    text-decoration: none !important;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.nav-top {
+    position: relative;
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5f1d2b 0%,
+            #7a1f2b 45%,
+            #8c2332 100%
+        );
+
+    overflow: hidden;
+
+    z-index: 100;
+}
+
+/* animated shine */
+
+.nav-top::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 40%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.10),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        topbarShine 8s linear infinite;
+}
+
+@keyframes topbarShine {
+
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+/* =========================================================
+   CONTACT AREA
+========================================================= */
+
+.contact {
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* phone + email */
+
+.num a,
+.email a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: rgba(255,255,255,0.92);
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease,
+        opacity 0.35s ease;
+}
+
+/* hover */
+
+.num a:hover,
+.email a:hover {
+    transform:
+        translateY(-2px);
+
+    color: #ffffff;
+}
+
+/* =========================================================
+   ICON HOLDER
+========================================================= */
+
+.num span,
+.email span {
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* icon hover */
+
+.num a:hover span,
+.email a:hover span {
+    background:
+        rgba(255,255,255,0.16);
+
+    transform:
+        scale(1.08);
+}
+
+/* svg */
+
+.num svg,
+.email svg {
+    fill: white;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* social links */
+
+.social a {
+    position: relative;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(12px);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s cubic-bezier(.22,1,.36,1),
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* glow */
+
+.social a::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.18),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+/* hover */
+
+.social a:hover {
+    transform:
+        translateY(-4px)
+        scale(1.06);
+
+    background:
+        rgba(255,255,255,0.16);
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,0.20);
+}
+
+.social a:hover::before {
+    opacity: 1;
+}
+
+/* icons */
+
+.social svg {
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+        transform 0.35s ease;
+}
+
+/* rotate effect */
+
+.social a:hover svg {
+    transform:
+        scale(1.08);
+}
+
+/* =========================================================
+   MAIN NAVBAR WRAPPER
+========================================================= */
+
+.head-container {
+    position: relative;
+
+    z-index: 99;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .nav-top {
+        padding: 0 20px;
+    }
+
+    .contact {
+        gap: 14px;
+    }
+
+    .num a,
+    .email a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nav-top {
+        height: auto;
+
+        padding:
+            10px 16px;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .contact {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    .social {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .num a,
+    .email a {
+        font-size: 11px;
+    }
+
+    .social a {
+        width: 32px;
+        height: 32px;
+    }
+}

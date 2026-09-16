@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.erpcrm {
+  width: 100%;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #faf7f4 0%,
+      #ffffff 100%
+    );
+
+  font-family: 'Inter', sans-serif;
+
+  color: #1f1f1f;
+}
+
+.erpcrm * {
+  box-sizing: border-box;
+}
+
+.erpcrm-container {
+  width: min(1280px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.erpcrm-hero {
+  position: relative;
+
+  padding:
+    90px
+    0
+    70px;
+
+  overflow: hidden;
+}
+
+.erpcrm-hero::before {
+  content: "";
+
+  position: absolute;
+
+  top: -180px;
+  right: -180px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      rgba(122, 31, 43, 0.08),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+.erpcrm-hero-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  align-items: center;
+
+  gap: 60px;
+}
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.erpcrm-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    10px
+    18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(122, 31, 43, 0.08);
+
+  color: #7a1f2b;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 26px;
+}
+
+.erpcrm-hero-left h1 {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      48px,
+      5vw,
+      88px
+    );
+
+  line-height: 0.94;
+
+  letter-spacing: -3px;
+
+  color: #240f14;
+
+  margin-bottom: 28px;
+}
+
+.erpcrm-hero-left p {
+  max-width: 620px;
+
+  font-size: 18px;
+
+  line-height: 1.9;
+
+  color: #5f5b5c;
+
+  margin-bottom: 40px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.erpcrm-hero-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+}
+
+.erpcrm-hero-buttons a {
+  text-decoration: none;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.erpcrm-hero-buttons a:first-child {
+  padding:
+    16px
+    34px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7a1f2b,
+      #b06b2d
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow:
+    0 14px 34px rgba(122,31,43,0.22);
+}
+
+.erpcrm-hero-buttons a:last-child {
+  padding:
+    15px
+    34px;
+
+  border-radius: 18px;
+
+  border:
+    1px solid rgba(122,31,43,0.16);
+
+  background: white;
+
+  color: #240f14;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.erpcrm-hero-buttons a:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.erpcrm-hero-right {
+  position: relative;
+}
+
+.erpcrm-hero-right img {
+  width: 100%;
+
+  border-radius: 34px;
+
+  display: block;
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.erpcrm-section {
+  padding:
+    40px
+    0
+    80px;
+}
+
+.erpcrm-split {
+  display: grid;
+
+  grid-template-columns:
+    0.95fr
+    1.05fr;
+
+  gap: 60px;
+
+  align-items: center;
+
+  margin-bottom: 90px;
+}
+
+.erpcrm-split.reverse {
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+}
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.erpcrm-image {
+  position: relative;
+}
+
+.erpcrm-image img {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.erpcrm-mini-tag {
+  display: inline-flex;
+
+  padding:
+    9px
+    16px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(122,31,43,0.08);
+
+  color: #7a1f2b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 22px;
+}
+
+.erpcrm-content h2 {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      34px,
+      3vw,
+      58px
+    );
+
+  line-height: 1.02;
+
+  letter-spacing: -2px;
+
+  color: #240f14;
+
+  margin-bottom: 24px;
+}
+
+.erpcrm-content p {
+  font-size: 16px;
+
+  line-height: 1.95;
+
+  color: #5d5a5c;
+
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.erpcrm-features {
+  position: relative;
+
+  padding:
+    90px
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #faf7f4
+    );
+}
+
+.erpcrm-heading {
+  text-align: center;
+
+  margin-bottom: 60px;
+}
+
+.erpcrm-heading h2 {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      40px,
+      4vw,
+      68px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  color: #240f14;
+
+  margin-top: 18px;
+}
+
+.erpcrm-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 26px;
+}
+
+/* =========================================================
+   FEATURE CARD
+========================================================= */
+
+.erpcrm-feature-card {
+  position: relative;
+
+  padding: 34px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.88);
+
+  border:
+    1px solid rgba(122,31,43,0.08);
+
+  backdrop-filter: blur(14px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.erpcrm-feature-card:hover {
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 22px 40px rgba(0,0,0,0.08);
+}
+
+.erpcrm-icon {
+  width: 68px;
+  height: 68px;
+
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7a1f2b,
+      #5b1620
+    );
+}
+
+.erpcrm-icon.orange {
+  background:
+    linear-gradient(
+      135deg,
+      #b06b2d,
+      #d8923e
+    );
+}
+
+.erpcrm-icon img {
+  width: 30px;
+}
+
+.erpcrm-feature-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #240f14;
+
+  margin-bottom: 14px;
+}
+
+.erpcrm-feature-card p {
+  font-size: 15px;
+
+  line-height: 1.9;
+
+  color: #666;
+}
+
+/* =========================================================
+   COLLAB
+========================================================= */
+
+.erpcrm-collab {
+  padding:
+    90px
+    0
+    120px;
+}
+
+.erpcrm-collab-grid {
+  display: grid;
+
+  grid-template-columns:
+    0.95fr
+    1.05fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.erpcrm-collab-image img {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 34px;
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.12);
+}
+
+.erpcrm-collab-content h2 {
+  font-family: 'Playfair Display', serif;
+
+  font-size:
+    clamp(
+      38px,
+      4vw,
+      64px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  color: #240f14;
+
+  margin:
+    20px
+    0
+    36px;
+}
+
+/* =========================================================
+   POINTS
+========================================================= */
+
+.erpcrm-points {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.erpcrm-point {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+
+  padding: 24px;
+
+  border-radius: 24px;
+
+  background: white;
+
+  border:
+    1px solid rgba(122,31,43,0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.erpcrm-point:hover {
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.07);
+}
+
+.erpcrm-point img {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.erpcrm-point h4 {
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #240f14;
+
+  margin-bottom: 10px;
+}
+
+.erpcrm-point p {
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .erpcrm-hero-grid,
+  .erpcrm-split,
+  .erpcrm-split.reverse,
+  .erpcrm-collab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erpcrm-feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .erpcrm-hero {
+    padding:
+      70px
+      0
+      50px;
+  }
+
+  .erpcrm-hero-left h1 {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+  }
+
+  .erpcrm-hero-left p {
+    font-size: 16px;
+  }
+
+  .erpcrm-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erpcrm-feature-card,
+  .erpcrm-point {
+    padding: 24px;
+  }
+
+  .erpcrm-content h2,
+  .erpcrm-heading h2,
+  .erpcrm-collab-content h2 {
+    font-size: 42px;
+  }
+
+  .erpcrm-split {
+    margin-bottom: 60px;
+  }
+
+}
