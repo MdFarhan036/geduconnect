@@ -1,0 +1,212 @@
+.media-gallery-page {
+    padding: 24px;
+}
+
+.media-header {
+    margin-bottom: 24px;
+}
+
+.media-header h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+}
+
+.media-header p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* ===============================
+   UPLOAD CARD
+================================ */
+
+.media-upload-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.media-upload-card h2 {
+    margin-top: 0;
+}
+
+.media-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.media-form-grid label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.media-form-grid input,
+.media-form-grid select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+}
+
+.media-upload-card > button {
+    margin-top: 20px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #111;
+    color: #fff;
+}
+
+.media-upload-card > button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* ===============================
+   SELECTED FILES
+================================ */
+
+.selected-files {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.selected-files ul {
+    margin-bottom: 0;
+}
+
+
+/* ===============================
+   FOLDER TABS
+================================ */
+
+.media-folder-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.media-folder-tabs button {
+    padding: 9px 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.media-folder-tabs button.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+
+/* ===============================
+   MEDIA GRID
+================================ */
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.media-card {
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.media-image {
+    height: 190px;
+    background: #f5f5f5;
+}
+
+.media-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.media-info {
+    padding: 12px;
+}
+
+.media-info strong,
+.media-info small {
+    display: block;
+}
+
+.media-info small {
+    margin-top: 5px;
+    color: #777;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.media-actions {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+}
+
+.media-actions button {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.media-actions .delete-btn {
+    color: #c62828;
+}
+
+.media-loading,
+.media-empty {
+    padding: 50px;
+    text-align: center;
+    color: #777;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+    .media-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .media-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}

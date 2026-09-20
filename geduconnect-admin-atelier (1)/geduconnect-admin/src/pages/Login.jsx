@@ -24,7 +24,7 @@ export default function Login() {
   };
 
   return (
-    <div className="premium-login" style={{ padding: 20, maxWidth: 360 }}>
+    <div style={{ padding: 20, maxWidth: 360 }}>
       <h2>Admin Login</h2>
 
       {error && (

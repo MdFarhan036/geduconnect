@@ -1,0 +1,452 @@
+[
+  {
+    "name": "Mumbai",
+    "state_name": "Maharashtra",
+    "lat": 19.076,
+    "lng": 72.8777,
+    "consultant_count": 51,
+    "sort_order": 1,
+    "is_active": 1
+  },
+  {
+    "name": "Delhi",
+    "state_name": "Delhi",
+    "lat": 28.7041,
+    "lng": 77.1025,
+    "consultant_count": 52,
+    "sort_order": 2,
+    "is_active": 1
+  },
+  {
+    "name": "Bangalore",
+    "state_name": "Karnataka",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "consultant_count": 53,
+    "sort_order": 3,
+    "is_active": 1
+  },
+  {
+    "name": "Hyderabad",
+    "state_name": "Telangana",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "consultant_count": 54,
+    "sort_order": 4,
+    "is_active": 1
+  },
+  {
+    "name": "Ahmedabad",
+    "state_name": "Gujarat",
+    "lat": 23.0225,
+    "lng": 72.5714,
+    "consultant_count": 55,
+    "sort_order": 5,
+    "is_active": 1
+  },
+  {
+    "name": "Chennai",
+    "state_name": "Tamil Nadu",
+    "lat": 13.0827,
+    "lng": 80.2707,
+    "consultant_count": 56,
+    "sort_order": 6,
+    "is_active": 1
+  },
+  {
+    "name": "Kolkata",
+    "state_name": "West Bengal",
+    "lat": 22.5726,
+    "lng": 88.3639,
+    "consultant_count": 57,
+    "sort_order": 7,
+    "is_active": 1
+  },
+  {
+    "name": "Pune",
+    "state_name": "Maharashtra",
+    "lat": 18.5204,
+    "lng": 73.8567,
+    "consultant_count": 58,
+    "sort_order": 8,
+    "is_active": 1
+  },
+  {
+    "name": "Jaipur",
+    "state_name": "Rajasthan",
+    "lat": 26.9124,
+    "lng": 75.7873,
+    "consultant_count": 59,
+    "sort_order": 9,
+    "is_active": 1
+  },
+  {
+    "name": "Lucknow",
+    "state_name": "Uttar Pradesh",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "consultant_count": 60,
+    "sort_order": 10,
+    "is_active": 1
+  },
+  {
+    "name": "Kanpur",
+    "state_name": "Uttar Pradesh",
+    "lat": 26.4499,
+    "lng": 80.3319,
+    "consultant_count": 61,
+    "sort_order": 11,
+    "is_active": 1
+  },
+  {
+    "name": "Nagpur",
+    "state_name": "Maharashtra",
+    "lat": 21.1458,
+    "lng": 79.0882,
+    "consultant_count": 62,
+    "sort_order": 12,
+    "is_active": 1
+  },
+  {
+    "name": "Indore",
+    "state_name": "Madhya Pradesh",
+    "lat": 22.7196,
+    "lng": 75.8577,
+    "consultant_count": 63,
+    "sort_order": 13,
+    "is_active": 1
+  },
+  {
+    "name": "Bhopal",
+    "state_name": "Madhya Pradesh",
+    "lat": 23.2599,
+    "lng": 77.4126,
+    "consultant_count": 64,
+    "sort_order": 14,
+    "is_active": 1
+  },
+  {
+    "name": "Patna",
+    "state_name": "Bihar",
+    "lat": 25.5941,
+    "lng": 85.1376,
+    "consultant_count": 65,
+    "sort_order": 15,
+    "is_active": 1
+  },
+  {
+    "name": "Ludhiana",
+    "state_name": "Punjab",
+    "lat": 30.901,
+    "lng": 75.8573,
+    "consultant_count": 66,
+    "sort_order": 16,
+    "is_active": 1
+  },
+  {
+    "name": "Agra",
+    "state_name": "Uttar Pradesh",
+    "lat": 27.1767,
+    "lng": 78.0081,
+    "consultant_count": 67,
+    "sort_order": 17,
+    "is_active": 1
+  },
+  {
+    "name": "Nashik",
+    "state_name": "Maharashtra",
+    "lat": 19.9975,
+    "lng": 73.7898,
+    "consultant_count": 68,
+    "sort_order": 18,
+    "is_active": 1
+  },
+  {
+    "name": "Vadodara",
+    "state_name": "Gujarat",
+    "lat": 22.3072,
+    "lng": 73.1812,
+    "consultant_count": 69,
+    "sort_order": 19,
+    "is_active": 1
+  },
+  {
+    "name": "Faridabad",
+    "state_name": "Haryana",
+    "lat": 28.4089,
+    "lng": 77.3178,
+    "consultant_count": 70,
+    "sort_order": 20,
+    "is_active": 1
+  },
+  {
+    "name": "Meerut",
+    "state_name": "Uttar Pradesh",
+    "lat": 28.9845,
+    "lng": 77.7064,
+    "consultant_count": 71,
+    "sort_order": 21,
+    "is_active": 1
+  },
+  {
+    "name": "Rajkot",
+    "state_name": "Gujarat",
+    "lat": 22.3039,
+    "lng": 70.8022,
+    "consultant_count": 72,
+    "sort_order": 22,
+    "is_active": 1
+  },
+  {
+    "name": "Varanasi",
+    "state_name": "Uttar Pradesh",
+    "lat": 25.3176,
+    "lng": 82.9739,
+    "consultant_count": 73,
+    "sort_order": 23,
+    "is_active": 1
+  },
+  {
+    "name": "Srinagar",
+    "state_name": "Jammu and Kashmir",
+    "lat": 34.0837,
+    "lng": 74.7973,
+    "consultant_count": 74,
+    "sort_order": 24,
+    "is_active": 1
+  },
+  {
+    "name": "Aurangabad",
+    "state_name": "Maharashtra",
+    "lat": 19.8762,
+    "lng": 75.3433,
+    "consultant_count": 75,
+    "sort_order": 25,
+    "is_active": 1
+  },
+  {
+    "name": "Dhanbad",
+    "state_name": "Jharkhand",
+    "lat": 23.7957,
+    "lng": 86.4304,
+    "consultant_count": 76,
+    "sort_order": 26,
+    "is_active": 1
+  },
+  {
+    "name": "Amritsar",
+    "state_name": "Punjab",
+    "lat": 31.634,
+    "lng": 74.8723,
+    "consultant_count": 77,
+    "sort_order": 27,
+    "is_active": 1
+  },
+  {
+    "name": "Allahabad",
+    "state_name": "Uttar Pradesh",
+    "lat": 25.4358,
+    "lng": 81.8463,
+    "consultant_count": 78,
+    "sort_order": 28,
+    "is_active": 1
+  },
+  {
+    "name": "Ranchi",
+    "state_name": "Jharkhand",
+    "lat": 23.3441,
+    "lng": 85.3096,
+    "consultant_count": 79,
+    "sort_order": 29,
+    "is_active": 1
+  },
+  {
+    "name": "Howrah",
+    "state_name": "West Bengal",
+    "lat": 22.5958,
+    "lng": 88.2636,
+    "consultant_count": 80,
+    "sort_order": 30,
+    "is_active": 1
+  },
+  {
+    "name": "Coimbatore",
+    "state_name": "Tamil Nadu",
+    "lat": 11.0168,
+    "lng": 76.9558,
+    "consultant_count": 81,
+    "sort_order": 31,
+    "is_active": 1
+  },
+  {
+    "name": "Jabalpur",
+    "state_name": "Madhya Pradesh",
+    "lat": 23.1815,
+    "lng": 79.9864,
+    "consultant_count": 82,
+    "sort_order": 32,
+    "is_active": 1
+  },
+  {
+    "name": "Gwalior",
+    "state_name": "Madhya Pradesh",
+    "lat": 26.2183,
+    "lng": 78.1828,
+    "consultant_count": 83,
+    "sort_order": 33,
+    "is_active": 1
+  },
+  {
+    "name": "Vijayawada",
+    "state_name": "Andhra Pradesh",
+    "lat": 16.5062,
+    "lng": 80.648,
+    "consultant_count": 84,
+    "sort_order": 34,
+    "is_active": 1
+  },
+  {
+    "name": "Jodhpur",
+    "state_name": "Rajasthan",
+    "lat": 26.2389,
+    "lng": 73.0243,
+    "consultant_count": 85,
+    "sort_order": 35,
+    "is_active": 1
+  },
+  {
+    "name": "Madurai",
+    "state_name": "Tamil Nadu",
+    "lat": 9.9252,
+    "lng": 78.1198,
+    "consultant_count": 86,
+    "sort_order": 36,
+    "is_active": 1
+  },
+  {
+    "name": "Raipur",
+    "state_name": "Chhattisgarh",
+    "lat": 21.2514,
+    "lng": 81.6296,
+    "consultant_count": 87,
+    "sort_order": 37,
+    "is_active": 1
+  },
+  {
+    "name": "Kota",
+    "state_name": "Rajasthan",
+    "lat": 25.2138,
+    "lng": 75.8648,
+    "consultant_count": 88,
+    "sort_order": 38,
+    "is_active": 1
+  },
+  {
+    "name": "Guwahati",
+    "state_name": "Assam",
+    "lat": 26.1445,
+    "lng": 91.7362,
+    "consultant_count": 89,
+    "sort_order": 39,
+    "is_active": 1
+  },
+  {
+    "name": "Chandigarh",
+    "state_name": "Punjab",
+    "lat": 30.7333,
+    "lng": 76.7794,
+    "consultant_count": 90,
+    "sort_order": 40,
+    "is_active": 1
+  },
+  {
+    "name": "Solapur",
+    "state_name": "Maharashtra",
+    "lat": 17.6599,
+    "lng": 75.9064,
+    "consultant_count": 91,
+    "sort_order": 41,
+    "is_active": 1
+  },
+  {
+    "name": "Hubli",
+    "state_name": "Karnataka",
+    "lat": 15.3647,
+    "lng": 75.124,
+    "consultant_count": 92,
+    "sort_order": 42,
+    "is_active": 1
+  },
+  {
+    "name": "Mysore",
+    "state_name": "Karnataka",
+    "lat": 12.2958,
+    "lng": 76.6394,
+    "consultant_count": 93,
+    "sort_order": 43,
+    "is_active": 1
+  },
+  {
+    "name": "Tiruchirappalli",
+    "state_name": "Tamil Nadu",
+    "lat": 10.7905,
+    "lng": 78.7047,
+    "consultant_count": 94,
+    "sort_order": 44,
+    "is_active": 1
+  },
+  {
+    "name": "Bareilly",
+    "state_name": "Uttar Pradesh",
+    "lat": 28.367,
+    "lng": 79.4304,
+    "consultant_count": 95,
+    "sort_order": 45,
+    "is_active": 1
+  },
+  {
+    "name": "Aligarh",
+    "state_name": "Uttar Pradesh",
+    "lat": 27.8974,
+    "lng": 78.088,
+    "consultant_count": 96,
+    "sort_order": 46,
+    "is_active": 1
+  },
+  {
+    "name": "Tiruppur",
+    "state_name": "Tamil Nadu",
+    "lat": 11.1085,
+    "lng": 77.3411,
+    "consultant_count": 97,
+    "sort_order": 47,
+    "is_active": 1
+  },
+  {
+    "name": "Moradabad",
+    "state_name": "Uttar Pradesh",
+    "lat": 28.8386,
+    "lng": 78.7733,
+    "consultant_count": 98,
+    "sort_order": 48,
+    "is_active": 1
+  },
+  {
+    "name": "Jalandhar",
+    "state_name": "Punjab",
+    "lat": 31.326,
+    "lng": 75.5762,
+    "consultant_count": 99,
+    "sort_order": 49,
+    "is_active": 1
+  },
+  {
+    "name": "Bhubaneswar",
+    "state_name": "Odisha",
+    "lat": 20.2961,
+    "lng": 85.8245,
+    "consultant_count": 100,
+    "sort_order": 50,
+    "is_active": 1
+  }
+]

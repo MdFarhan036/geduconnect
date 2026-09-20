@@ -1426,4 +1426,273 @@ td {
     background: #eef3ff;
     border-color: #1a3c8b;
     transform: translateY(-3px);
+}/* =====================================================
+   GET FREE COUNSELLING SECTION
+===================================================== */
+
+.counselling-section {
+  width: 100%;
+  padding: 70px 24px;
+  margin-top: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef4ff 0%,
+      #f7f2ff 100%
+    );
+
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.counselling-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.counselling-section-content {
+  max-width: 700px;
+}
+
+.counselling-section-label {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  color: #5f1d2b;
+}
+
+.counselling-section-content h2 {
+  margin: 0 0 14px;
+
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.counselling-section-content p {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #4b5563;
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.counselling-benefits {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 24px;
+}
+
+.counselling-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.counselling-benefit span:first-child {
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #    #;
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.counselling-section-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 30px;
+
+  padding: 14px 24px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+   #5f1d2b,
+      #5f1d2b
+  );
+
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.counselling-section-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.3);
+}
+
+.counselling-section-btn span {
+  font-size: 19px;
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.counselling-section-visual {
+  position: relative;
+
+  width: 300px;
+  min-width: 300px;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counselling-circle {
+  width: 150px;
+  height: 150px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  font-size: 60px;
+
+  box-shadow:
+    0 15px 40px rgba(37, 99, 235, 0.15);
+}
+
+.counselling-card {
+  position: absolute;
+
+  right: 0;
+  bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px 18px;
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.counselling-card strong {
+  font-size: 14px;
+  color: #111827;
+}
+
+.counselling-card span {
+  margin-top: 4px;
+
+  font-size: 11px;
+  color: #6b7280;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .counselling-section {
+    padding: 50px 20px;
+  }
+
+  .counselling-section-inner {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 35px;
+  }
+
+  .counselling-section-content h2 {
+    font-size: 30px;
+  }
+
+  .counselling-section-content p {
+    font-size: 14px;
+  }
+
+  .counselling-benefits {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .counselling-section-visual {
+    width: 100%;
+    min-width: 0;
+    height: 180px;
+  }
+
+  .counselling-card {
+    right: 10%;
+  }
 }

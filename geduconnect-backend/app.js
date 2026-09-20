@@ -11,6 +11,7 @@ import highlightRoutes from "./routes/highlightRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
 import testimonialRoutes from "./routes/testimonialRoutes.js";
 import faqRoutes from "./routes/faqRoutes.js";
+import modeRoutes from "./routes/modeRoutes.js";
 import clientRoutes from "./routes/clientRoutes.js";
 import siteSettingsRoutes from "./routes/siteSettingsRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
@@ -27,13 +28,17 @@ import adminProgramRoutes from "./routes/programRoutes.js";
 // import programFeeRoutes from "./routes/programFeeRoutes.js";
 import publicRoutes from "./routes/publicRoutes.js";
 import programRoutes from "./routes/programRoutes.js";
-// import courseRoutes from "./routes/courseRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
 // import adminRoutes from "./routes/adminRoutes.js";
+import universityCourseRoutes from "./routes/universityCourseRoutes.js";
 import journeyRoutes from "./routes/journeyRoutes.js";
 import consultantNetworkRoutes
 from "./routes/consultantNetworkRoutes.js";
 import locationRoutes
   from "./routes/locationRoutes.js";
+  import counsellingRoutes from "./routes/counsellingRoutes.js";
+  import counsellingAdminRoutes from "./routes/counsellingAdminRoutes.js";
+  import mediaRoutes from "./routes/mediaRoutes.js";
 const app = express();
 
 // Middleware
@@ -71,6 +76,7 @@ app.use("/api", highlightRoutes);
 app.use("/api", serviceRoutes);
 app.use("/api", testimonialRoutes);
 app.use("/api", faqRoutes);
+app.use("/api", modeRoutes);
 app.use("/api", clientRoutes);
 app.use("/api", siteSettingsRoutes);
 app.use("/api", blogRoutes);
@@ -94,8 +100,11 @@ app.use(
 );
 app.use("/api", publicRoutes);
 app.use("/api", programRoutes);
-
-// app.use("/api/courses", courseRoutes);
+app.use("/api", counsellingRoutes);
+app.use("/api", counsellingAdminRoutes);
+app.use("/api", mediaRoutes);
+app.use("/api", courseRoutes);
+app.use("/api", universityCourseRoutes);
 // app.use("/api/admin", adminRoutes);
 // 404 handler
 app.use((req, res) => {

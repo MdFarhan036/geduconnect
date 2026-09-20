@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Delhi",
+    "state_name": "Delhi",
+    "lat": 28.7041,
+    "lng": 77.1025,
+    "consultant_count": 90,
+    "sort_order": 1,
+    "is_active": 1
+  },
+  {
+    "name": "Jaipur",
+    "state_name": "Rajasthan",
+    "lat": 26.9124,
+    "lng": 75.7873,
+    "consultant_count": 50,
+    "sort_order": 2,
+    "is_active": 1
+  },
+  {
+    "name": "Lucknow",
+    "state_name": "Uttar Pradesh",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "consultant_count": 70,
+    "sort_order": 3,
+    "is_active": 1
+  },
+  {
+    "name": "Chandigarh",
+    "state_name": "Punjab",
+    "lat": 30.7333,
+    "lng": 76.7794,
+    "consultant_count": 40,
+    "sort_order": 4,
+    "is_active": 1
+  },
+  {
+    "name": "Mumbai",
+    "state_name": "Maharashtra",
+    "lat": 19.076,
+    "lng": 72.8777,
+    "consultant_count": 120,
+    "sort_order": 5,
+    "is_active": 1
+  },
+  {
+    "name": "Bangalore",
+    "state_name": "Karnataka",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "consultant_count": 110,
+    "sort_order": 6,
+    "is_active": 1
+  },
+  {
+    "name": "Hyderabad",
+    "state_name": "Telangana",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "consultant_count": 80,
+    "sort_order": 7,
+    "is_active": 1
+  },
+  {
+    "name": "Ahmedabad",
+    "state_name": "Gujarat",
+    "lat": 23.0225,
+    "lng": 72.5714,
+    "consultant_count": 60,
+    "sort_order": 8,
+    "is_active": 1
+  },
+  {
+    "name": "Pune",
+    "state_name": "Maharashtra",
+    "lat": 18.5204,
+    "lng": 73.8567,
+    "consultant_count": 55,
+    "sort_order": 9,
+    "is_active": 1
+  },
+  {
+    "name": "Kolkata",
+    "state_name": "West Bengal",
+    "lat": 22.5726,
+    "lng": 88.3639,
+    "consultant_count": 75,
+    "sort_order": 10,
+    "is_active": 1
+  }
+]

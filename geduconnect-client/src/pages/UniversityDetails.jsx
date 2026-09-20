@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../api/api";
-
+import CounsellingModal from "../components/CounsellingModal";
+import GlobalCounsellingModal from "../components/GlobalCounsellingModal";
 /* ================= BASE URL ================= */
 const API_BASE =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
@@ -36,7 +37,6 @@ const cleanHtml = (html = "") => {
 export default function UniversityDetails() {
   const { slug, tabSlug } = useParams();
   const navigate = useNavigate();
-
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(null);
   const [showAllBadges, setShowAllBadges] = useState(false);
@@ -47,7 +47,9 @@ export default function UniversityDetails() {
 
   const [isCompared, setIsCompared] = useState(false);
   const [compareCount, setCompareCount] = useState(0);
-
+const [showCounselling, setShowCounselling] = useState(false);
+const [showGlobalCounselling, setShowGlobalCounselling] =
+  useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -279,22 +281,22 @@ export default function UniversityDetails() {
   const approvalNames =
     Array.isArray(extra.approvals)
       ? extra.approvals
-          .map(getApprovalName)
-          .filter(Boolean)
+        .map(getApprovalName)
+        .filter(Boolean)
       : [];
 
   const affiliationNames =
     Array.isArray(extra.affiliations)
       ? extra.affiliations
-          .map(getAffiliationName)
-          .filter(Boolean)
+        .map(getAffiliationName)
+        .filter(Boolean)
       : [];
 
   const rankingNames =
     Array.isArray(extra.rankings)
       ? extra.rankings
-          .map(getRankingName)
-          .filter(Boolean)
+        .map(getRankingName)
+        .filter(Boolean)
       : [];
 
   const allBadges = [
@@ -474,15 +476,19 @@ export default function UniversityDetails() {
             <button
               className="counselling-btn"
               type="button"
+              onClick={() => setShowCounselling(true)}
             >
               Get Free Counselling →
             </button>
-
+            <CounsellingModal
+              show={showCounselling}
+              onClose={() => setShowCounselling(false)}
+              university={data}
+            />
             <button
               type="button"
-              className={`compare-btn ${
-                isCompared ? "active" : ""
-              }`}
+              className={`compare-btn ${isCompared ? "active" : ""
+                }`}
               onClick={handleCompare}
             >
               {isCompared
@@ -566,7 +572,7 @@ export default function UniversityDetails() {
             PROGRAMS
         ================================================= */}
 
-       
+
 
       </div>
 
@@ -606,7 +612,81 @@ export default function UniversityDetails() {
 
         </div>
       )}
+{/* =====================================================
+    GET FREE COUNSELLING SECTION
+===================================================== */}
 
+<section className="counselling-section">
+
+  <div className="counselling-section-inner">
+
+    <div className="counselling-section-content">
+
+      <span className="counselling-section-label">
+        NEED HELP CHOOSING?
+      </span>
+
+      <h2>
+        Get Free Counselling
+      </h2>
+
+      <p>
+        Confused about universities, courses, eligibility
+        or admissions? Talk to our education experts and
+        get personalised guidance.
+      </p>
+
+      <div className="counselling-benefits">
+
+        <div className="counselling-benefit">
+          <span>✓</span>
+          <span>Course & University Guidance</span>
+        </div>
+
+        <div className="counselling-benefit">
+          <span>✓</span>
+          <span>Admission Assistance</span>
+        </div>
+
+        <div className="counselling-benefit">
+          <span>✓</span>
+          <span>Fee & Eligibility Guidance</span>
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        className="counselling-section-btn"
+        onClick={() => setShowGlobalCounselling(true)}
+      >
+        Get Free Counselling
+        <span>→</span>
+      </button>
+
+    </div>
+
+    <div className="counselling-section-visual">
+
+      <div className="counselling-circle">
+        🎓
+      </div>
+
+      <div className="counselling-card">
+        <strong>Talk to an Expert</strong>
+        <span>Get personalised guidance</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<GlobalCounsellingModal
+  show={showGlobalCounselling}
+  onClose={() => setShowGlobalCounselling(false)}
+/>
     </div>
   );
 }

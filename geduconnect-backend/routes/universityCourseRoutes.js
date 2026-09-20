@@ -1,13 +1,10 @@
 import express from "express";
 
 import {
-    addCourse,
-    getAllCourses,
-    getSingleCourse,
-    updateCourse,
-    deleteCourse,
-    getCoursesByUniversity,
-} from "../controllers/adminCourseController.js";
+    getUniversityCourses,
+    syncUniversityCourses,
+    getPublicUniversityCourses,
+} from "../controllers/universityCourseController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
 
@@ -20,7 +17,7 @@ const router = express.Router();
 
 router.get(
     "/public/universities/:universityId/courses",
-    getCoursesByUniversity
+    getPublicUniversityCourses
 );
 
 
@@ -30,29 +27,26 @@ router.get(
 
 router.use(protect);
 
-router.post(
-    "/admin/courses",
-    addCourse
-);
+
+/*
+   Get all common courses and whether
+   they are assigned to this university.
+*/
 
 router.get(
-    "/admin/courses",
-    getAllCourses
+    "/admin/universities/:universityId/courses",
+    getUniversityCourses
 );
 
-router.get(
-    "/admin/courses/:id",
-    getSingleCourse
-);
+
+/*
+   Assign / replace courses for university.
+*/
 
 router.put(
-    "/admin/courses/:id",
-    updateCourse
+    "/admin/universities/:universityId/courses",
+    syncUniversityCourses
 );
 
-router.delete(
-    "/admin/courses/:id",
-    deleteCourse
-);
 
 export default router;

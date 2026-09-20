@@ -1,0 +1,581 @@
+.counselling-admin {
+  padding: 28px;
+  min-height: 100vh;
+  background: #f6f8fc;
+}
+
+/* ================= HEADER ================= */
+
+.counselling-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.admin-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #6366f1;
+}
+
+.counselling-admin-header h1 {
+  margin: 6px 0 5px;
+  font-size: 30px;
+  color: #111827;
+}
+
+.counselling-admin-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.refresh-btn {
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= STATS ================= */
+
+.counselling-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.counselling-stat {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: white;
+  padding: 18px;
+  border-radius: 15px;
+  border: 1px solid #e8ebf2;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #eef2ff;
+  font-size: 19px;
+}
+
+.counselling-stat span {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.counselling-stat strong {
+  font-size: 22px;
+  color: #111827;
+}
+
+/* ================= FILTERS ================= */
+
+.counselling-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.counselling-search {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+}
+
+.counselling-search > span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.counselling-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 42px;
+  border: 1px solid #dfe3eb;
+  border-radius: 11px;
+  outline: none;
+  background: white;
+  font-size: 14px;
+}
+
+.counselling-search input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px #6366f11a;
+}
+
+.counselling-search button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-size: 21px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.counselling-filters select {
+  min-width: 170px;
+  border: 1px solid #dfe3eb;
+  border-radius: 11px;
+  background: white;
+  padding: 0 14px;
+  outline: none;
+}
+
+/* ================= TABLE ================= */
+
+.counselling-table-card {
+  background: white;
+  border: 1px solid #e8ebf2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+.counselling-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.counselling-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+}
+
+.counselling-table th {
+  text-align: left;
+  padding: 15px 17px;
+  background: #fafbfc;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  border-bottom: 1px solid #e8ebf2;
+}
+
+.counselling-table td {
+  padding: 16px 17px;
+  border-bottom: 1px solid #eef0f4;
+  vertical-align: middle;
+}
+
+.counselling-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.counselling-table tbody tr:hover {
+  background: #fafbff;
+}
+
+/* ================= STUDENT ================= */
+
+.student-cell {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.student-avatar,
+.modal-avatar {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+  color: white;
+  font-weight: 800;
+}
+
+.student-cell strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+}
+
+.student-cell small {
+  display: block;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-cell a {
+  color: #374151;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.contact-cell a:hover {
+  color: #4f46e5;
+}
+
+/* ================= UNIVERSITY ================= */
+
+.university-cell {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 210px;
+}
+
+.university-cell strong {
+  font-size: 13px;
+  line-height: 1.35;
+  color: #374151;
+}
+
+/* ================= COURSE ================= */
+
+.course-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* ================= STATUS ================= */
+
+.status-select {
+  border: 0;
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  outline: none;
+}
+
+.status-new {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-contacted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-followup {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-converted {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.status-closed {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* ================= DATE ================= */
+
+.request-date {
+  white-space: nowrap;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* ================= VIEW ================= */
+
+.view-btn {
+  border: 1px solid #dfe3eb;
+  background: white;
+  color: #4f46e5;
+  padding: 8px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.view-btn:hover {
+  background: #eef2ff;
+}
+
+/* ================= LOADING ================= */
+
+.counselling-loading,
+.counselling-empty {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.table-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: counsellingSpin 0.8s linear infinite;
+}
+
+.counselling-loading p,
+.counselling-empty p {
+  color: #6b7280;
+}
+
+.empty-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.counselling-empty h3 {
+  margin: 0;
+  color: #111827;
+}
+
+/* ================= MODAL ================= */
+
+.request-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.request-modal {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+  animation: counsellingModalIn 0.25s ease;
+}
+
+.request-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  border: 0;
+  background: #f1f5f9;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.request-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 35px;
+  margin-bottom: 25px;
+}
+
+.request-modal-header > div:last-child span {
+  font-size: 10px;
+  color: #6366f1;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.request-modal-header h2 {
+  margin: 4px 0 0;
+  color: #111827;
+}
+
+/* ================= DETAILS ================= */
+
+.request-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+}
+
+.detail-item {
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 11px;
+}
+
+.detail-item span {
+  display: block;
+  color: #6b7280;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.detail-item strong,
+.detail-item a {
+  color: #111827;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.detail-item a:hover {
+  color: #4f46e5;
+}
+
+/* ================= MESSAGE ================= */
+
+.request-message {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.request-message > span {
+  font-size: 11px;
+  font-weight: 800;
+  color: #6b7280;
+}
+
+.request-message p {
+  margin: 8px 0 0;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ================= ACTIONS ================= */
+
+.request-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.call-btn,
+.email-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.call-btn {
+  background: #111827;
+  color: white;
+}
+
+.email-btn {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes counsellingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counsellingModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .counselling-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .counselling-admin {
+    padding: 18px;
+  }
+
+  .counselling-admin-header {
+    flex-direction: column;
+  }
+
+  .counselling-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .counselling-filters {
+    flex-direction: column;
+  }
+
+  .counselling-search {
+    max-width: none;
+  }
+
+  .counselling-filters select {
+    min-height: 45px;
+  }
+
+  .request-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .counselling-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .request-modal {
+    padding: 20px;
+  }
+
+  .request-modal-actions {
+    flex-direction: column;
+  }
+}
