@@ -4,7 +4,7 @@
     "state_name": "Maharashtra",
     "lat": 19.076,
     "lng": 72.8777,
-    "consultant_count": 51,
+    "consultant_count": 58,
     "sort_order": 1,
     "is_active": 1
   },
@@ -13,7 +13,7 @@
     "state_name": "Delhi",
     "lat": 28.7041,
     "lng": 77.1025,
-    "consultant_count": 52,
+    "consultant_count": 59,
     "sort_order": 2,
     "is_active": 1
   },
@@ -22,7 +22,7 @@
     "state_name": "Karnataka",
     "lat": 12.9716,
     "lng": 77.5946,
-    "consultant_count": 53,
+    "consultant_count": 0,
     "sort_order": 3,
     "is_active": 1
   },
@@ -31,7 +31,7 @@
     "state_name": "Telangana",
     "lat": 17.385,
     "lng": 78.4867,
-    "consultant_count": 54,
+    "consultant_count": 0,
     "sort_order": 4,
     "is_active": 1
   },
@@ -40,7 +40,7 @@
     "state_name": "Gujarat",
     "lat": 23.0225,
     "lng": 72.5714,
-    "consultant_count": 55,
+    "consultant_count": 202,
     "sort_order": 5,
     "is_active": 1
   },
@@ -49,7 +49,7 @@
     "state_name": "Tamil Nadu",
     "lat": 13.0827,
     "lng": 80.2707,
-    "consultant_count": 56,
+    "consultant_count": 0,
     "sort_order": 6,
     "is_active": 1
   },
@@ -58,25 +58,17 @@
     "state_name": "West Bengal",
     "lat": 22.5726,
     "lng": 88.3639,
-    "consultant_count": 57,
+    "consultant_count": 40,
     "sort_order": 7,
     "is_active": 1
   },
-  {
-    "name": "Pune",
-    "state_name": "Maharashtra",
-    "lat": 18.5204,
-    "lng": 73.8567,
-    "consultant_count": 58,
-    "sort_order": 8,
-    "is_active": 1
-  },
+
   {
     "name": "Jaipur",
     "state_name": "Rajasthan",
     "lat": 26.9124,
     "lng": 75.7873,
-    "consultant_count": 59,
+    "consultant_count": 500,
     "sort_order": 9,
     "is_active": 1
   },
@@ -85,7 +77,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 26.8467,
     "lng": 80.9462,
-    "consultant_count": 60,
+    "consultant_count": 50,
     "sort_order": 10,
     "is_active": 1
   },
@@ -94,7 +86,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 26.4499,
     "lng": 80.3319,
-    "consultant_count": 61,
+    "consultant_count": 0,
     "sort_order": 11,
     "is_active": 1
   },
@@ -103,7 +95,7 @@
     "state_name": "Maharashtra",
     "lat": 21.1458,
     "lng": 79.0882,
-    "consultant_count": 62,
+    "consultant_count": 0,
     "sort_order": 12,
     "is_active": 1
   },
@@ -112,7 +104,7 @@
     "state_name": "Madhya Pradesh",
     "lat": 22.7196,
     "lng": 75.8577,
-    "consultant_count": 63,
+    "consultant_count": 10,
     "sort_order": 13,
     "is_active": 1
   },
@@ -121,7 +113,7 @@
     "state_name": "Madhya Pradesh",
     "lat": 23.2599,
     "lng": 77.4126,
-    "consultant_count": 64,
+    "consultant_count": 9,
     "sort_order": 14,
     "is_active": 1
   },
@@ -139,7 +131,7 @@
     "state_name": "Punjab",
     "lat": 30.901,
     "lng": 75.8573,
-    "consultant_count": 66,
+    "consultant_count": 0,
     "sort_order": 16,
     "is_active": 1
   },
@@ -148,7 +140,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 27.1767,
     "lng": 78.0081,
-    "consultant_count": 67,
+    "consultant_count": 0,
     "sort_order": 17,
     "is_active": 1
   },
@@ -157,7 +149,7 @@
     "state_name": "Maharashtra",
     "lat": 19.9975,
     "lng": 73.7898,
-    "consultant_count": 68,
+    "consultant_count": 0,
     "sort_order": 18,
     "is_active": 1
   },
@@ -166,7 +158,7 @@
     "state_name": "Gujarat",
     "lat": 22.3072,
     "lng": 73.1812,
-    "consultant_count": 69,
+    "consultant_count": 0,
     "sort_order": 19,
     "is_active": 1
   },
@@ -175,7 +167,7 @@
     "state_name": "Haryana",
     "lat": 28.4089,
     "lng": 77.3178,
-    "consultant_count": 70,
+    "consultant_count": 140,
     "sort_order": 20,
     "is_active": 1
   },
@@ -184,7 +176,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 28.9845,
     "lng": 77.7064,
-    "consultant_count": 71,
+    "consultant_count": 200,
     "sort_order": 21,
     "is_active": 1
   },
@@ -193,7 +185,7 @@
     "state_name": "Gujarat",
     "lat": 22.3039,
     "lng": 70.8022,
-    "consultant_count": 72,
+    "consultant_count": 0,
     "sort_order": 22,
     "is_active": 1
   },
@@ -211,7 +203,7 @@
     "state_name": "Jammu and Kashmir",
     "lat": 34.0837,
     "lng": 74.7973,
-    "consultant_count": 74,
+    "consultant_count": 8,
     "sort_order": 24,
     "is_active": 1
   },
@@ -220,7 +212,7 @@
     "state_name": "Maharashtra",
     "lat": 19.8762,
     "lng": 75.3433,
-    "consultant_count": 75,
+    "consultant_count": 0,
     "sort_order": 25,
     "is_active": 1
   },
@@ -229,7 +221,7 @@
     "state_name": "Jharkhand",
     "lat": 23.7957,
     "lng": 86.4304,
-    "consultant_count": 76,
+    "consultant_count": 5,
     "sort_order": 26,
     "is_active": 1
   },
@@ -238,7 +230,7 @@
     "state_name": "Punjab",
     "lat": 31.634,
     "lng": 74.8723,
-    "consultant_count": 77,
+    "consultant_count": 0,
     "sort_order": 27,
     "is_active": 1
   },
@@ -247,7 +239,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 25.4358,
     "lng": 81.8463,
-    "consultant_count": 78,
+    "consultant_count": 0,
     "sort_order": 28,
     "is_active": 1
   },
@@ -256,7 +248,7 @@
     "state_name": "Jharkhand",
     "lat": 23.3441,
     "lng": 85.3096,
-    "consultant_count": 79,
+    "consultant_count": 5,
     "sort_order": 29,
     "is_active": 1
   },
@@ -265,7 +257,7 @@
     "state_name": "West Bengal",
     "lat": 22.5958,
     "lng": 88.2636,
-    "consultant_count": 80,
+    "consultant_count": 8,
     "sort_order": 30,
     "is_active": 1
   },
@@ -283,7 +275,7 @@
     "state_name": "Madhya Pradesh",
     "lat": 23.1815,
     "lng": 79.9864,
-    "consultant_count": 82,
+    "consultant_count": 0,
     "sort_order": 32,
     "is_active": 1
   },
@@ -292,7 +284,7 @@
     "state_name": "Madhya Pradesh",
     "lat": 26.2183,
     "lng": 78.1828,
-    "consultant_count": 83,
+    "consultant_count": 0,
     "sort_order": 33,
     "is_active": 1
   },
@@ -310,7 +302,7 @@
     "state_name": "Rajasthan",
     "lat": 26.2389,
     "lng": 73.0243,
-    "consultant_count": 85,
+    "consultant_count": 10,
     "sort_order": 35,
     "is_active": 1
   },
@@ -328,7 +320,7 @@
     "state_name": "Chhattisgarh",
     "lat": 21.2514,
     "lng": 81.6296,
-    "consultant_count": 87,
+    "consultant_count": 31,
     "sort_order": 37,
     "is_active": 1
   },
@@ -337,7 +329,7 @@
     "state_name": "Rajasthan",
     "lat": 25.2138,
     "lng": 75.8648,
-    "consultant_count": 88,
+    "consultant_count": 100,
     "sort_order": 38,
     "is_active": 1
   },
@@ -355,7 +347,7 @@
     "state_name": "Punjab",
     "lat": 30.7333,
     "lng": 76.7794,
-    "consultant_count": 90,
+    "consultant_count": 131,
     "sort_order": 40,
     "is_active": 1
   },
@@ -364,7 +356,7 @@
     "state_name": "Maharashtra",
     "lat": 17.6599,
     "lng": 75.9064,
-    "consultant_count": 91,
+    "consultant_count": 0,
     "sort_order": 41,
     "is_active": 1
   },
@@ -400,7 +392,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 28.367,
     "lng": 79.4304,
-    "consultant_count": 95,
+    "consultant_count": 0,
     "sort_order": 45,
     "is_active": 1
   },
@@ -409,7 +401,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 27.8974,
     "lng": 78.088,
-    "consultant_count": 96,
+    "consultant_count": 0,
     "sort_order": 46,
     "is_active": 1
   },
@@ -427,7 +419,7 @@
     "state_name": "Uttar Pradesh",
     "lat": 28.8386,
     "lng": 78.7733,
-    "consultant_count": 98,
+    "consultant_count": 0,
     "sort_order": 48,
     "is_active": 1
   },
@@ -436,7 +428,7 @@
     "state_name": "Punjab",
     "lat": 31.326,
     "lng": 75.5762,
-    "consultant_count": 99,
+    "consultant_count": 0,
     "sort_order": 49,
     "is_active": 1
   },
@@ -445,7 +437,7 @@
     "state_name": "Odisha",
     "lat": 20.2961,
     "lng": 85.8245,
-    "consultant_count": 100,
+    "consultant_count": 16,
     "sort_order": 50,
     "is_active": 1
   }

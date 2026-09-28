@@ -1,0 +1,341 @@
+.admin-carousel-manager {
+  padding: 25px;
+  background: #fff;
+  border-radius: 14px;
+}
+
+.carousel-manager-header {
+  margin-bottom: 25px;
+}
+
+.carousel-manager-header h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.carousel-manager-header p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* FORM */
+
+.carousel-image-form {
+  padding: 20px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  background: #fafafa;
+
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+
+  height: 43px;
+
+  padding: 0 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #fff;
+
+  font-size: 13px;
+}
+
+.form-group input:focus {
+  border-color: #6f1022;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-image-btn,
+.cancel-image-btn {
+  border: 0;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.save-image-btn {
+  background: #6f1022;
+  color: #fff;
+}
+
+.cancel-image-btn {
+  background: #e8e8e8;
+  color: #333;
+}
+
+
+/* GRID */
+
+.admin-carousel-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+
+/* CARD */
+
+.admin-carousel-card {
+  overflow: hidden;
+
+  border: 1px solid #e3e3e3;
+
+  border-radius: 13px;
+
+  background: #fff;
+
+  transition: .2s;
+}
+
+.admin-carousel-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.08);
+}
+
+.admin-carousel-card.inactive {
+  opacity: .6;
+}
+
+
+/* PREVIEW */
+
+.admin-image-preview {
+  position: relative;
+
+  height: 180px;
+
+  background: #eee;
+
+  overflow: hidden;
+}
+
+.admin-image-preview img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.image-order {
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  padding: 5px 8px;
+
+  background:
+    rgba(0,0,0,.7);
+
+  color: #fff;
+
+  border-radius: 6px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.inactive-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(0,0,0,.5);
+
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+/* INFO */
+
+.admin-image-info {
+  padding: 13px 13px 8px;
+}
+
+.admin-image-info strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.admin-image-info small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #888;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* ACTIONS */
+
+.admin-image-actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
+  gap: 5px;
+
+  padding: 10px;
+}
+
+.admin-image-actions button {
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  color: #444;
+
+  padding: 7px 4px;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.admin-image-actions button:hover {
+  background: #f5f5f5;
+}
+
+.admin-image-actions .delete {
+  border-color: #f1c8cf;
+
+  color: #b31c38;
+
+  background: #fff5f6;
+}
+
+
+/* EMPTY */
+
+.carousel-empty {
+  padding: 50px;
+
+  border: 2px dashed #ddd;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  color: #888;
+}
+
+.carousel-empty > div {
+  font-size: 35px;
+
+  margin-bottom: 10px;
+}
+
+.carousel-empty h3 {
+  margin: 0 0 5px;
+
+  color: #444;
+}
+
+.carousel-empty p {
+  margin: 0;
+
+  font-size: 12px;
+}
+
+
+/* LOADING */
+
+.carousel-loading {
+  padding: 40px;
+
+  text-align: center;
+
+  color: #777;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .admin-carousel-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .admin-carousel-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-carousel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-carousel-manager {
+    padding: 15px;
+  }
+}

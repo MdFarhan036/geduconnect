@@ -2,7 +2,7 @@ import React from 'react'
 import "../components/Components.css"
 import { Features } from '../components/Features'
 
-
+import { Helmet } from "react-helmet-async"
 import { Banner } from '../components/Banner'
 import { OurPartners } from '../components/OurPartners'
 
@@ -38,6 +38,28 @@ export const Home = () => {
 
   return (
     <>
+      <Helmet>
+
+        <title>
+          G Educonnect | Education Consultant in Jaipur | Online & Distance Admission
+        </title>
+
+        <meta
+          name="description"
+          content="G Educonnect is an education consultancy providing expert guidance for online and distance education admissions, university selection, courses, fees and career opportunities."
+        />
+
+        <meta
+          name="keywords"
+          content="G Educonnect, education consultant Jaipur, online admission, distance admission, online education, distance education, university admission, education consultancy"
+        />
+
+        <link
+          rel="canonical"
+          href="https://geduconnect.com/"
+        />
+
+      </Helmet>
       {/* <HomeCarousel /> */}
       <HeroCarousel />
       <About variant="home" />
@@ -51,10 +73,10 @@ export const Home = () => {
       {/* <Director /> */}
       {/* <PartnersSlider /> */}
       {/* <Testimonials /> */}
-      
+
 
       <HomeTestimonials />
-      
+
 
       {/* <ERPandCRM /> */}
       {/* <ConsultantNetwork /> */}

@@ -1,277 +1,721 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  GraduationCap,
+  Network,
+  Play,
+  School,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
+
 import api from "../api/api";
+
 import "./HeroCarousel.css";
 
-const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+/* =========================================================
+   API / ASSET URL
+========================================================= */
 
-const BASE_URL = API_BASE.replace("/api", "");
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:5000/api";
+
+const BASE_URL = API_BASE.replace(/\/api\/?$/, "");
 
 const resolveUrl = (url) => {
   if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return `${BASE_URL}${url}`;
+
+  if (/^(https?:|data:|blob:)/i.test(url)) {
+    return url;
+  }
+
+  return `${BASE_URL}/${url.replace(/^\/+/, "")}`;
 };
 
+/* =========================================================
+   AUDIENCE CTA FALLBACK
+========================================================= */
+
+const audiences = {
+  student: {
+    text: "Get Guidance",
+    href: "/contact?audience=student",
+  },
+
+  university: {
+    text: "Partner With Us",
+    href: "/contact?audience=university",
+  },
+
+  consultant: {
+    text: "Join Our Network",
+    href: "/consultantNetwork",
+  },
+};
+
+/* =========================================================
+   STATS
+========================================================= */
+
+const stats = [
+  {
+    value: "500+",
+    label: "University Partners",
+    Icon: School,
+  },
+  {
+    value: "10,000+",
+    label: "Students Guided",
+    Icon: GraduationCap,
+  },
+  {
+    value: "200+",
+    label: "Consultants",
+    Icon: Users,
+  },
+  {
+    value: "95%",
+    label: "Satisfaction Rate",
+    Icon: ShieldCheck,
+  },
+];
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 export default function HeroCarousel() {
-  const navigate = useNavigate();
-
-  const [hero, setHero] = useState(null);
   const [universities, setUniversities] = useState([]);
-  const [hoverIndex, setHoverIndex] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [heroes, setHeroes] = useState([]);
 
-  const videoRef = useRef(null);
-  const sliderRef = useRef(null);
+  const [audience, setAudience] = useState("student");
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  /* =========================================================
-      LOAD HERO + UNIVERSITIES
-  ========================================================= */
+  const trackRef = useRef(null);
+
+  /* =======================================================
+     FETCH HERO
+  ======================================================= */
 
   useEffect(() => {
+    const controller = new AbortController();
+
+    const fetchHero = async () => {
+      try {
+        setLoading(true);
+
+        const { data } = await api.get("/public/home", {
+          signal: controller.signal,
+        });
+
+        const images = Array.isArray(data?.hero?.images)
+          ? data.hero.images
+          : [];
+
+        const sortedImages = [...images].sort(
+          (a, b) =>
+            Number(a?.sort_order || 0) -
+            Number(b?.sort_order || 0)
+        );
+
+        setHeroes(sortedImages);
+        setActive(0);
+      } catch (error) {
+        if (
+          error?.name !== "CanceledError" &&
+          error?.code !== "ERR_CANCELED"
+        ) {
+          console.error(
+            "Failed to load hero data:",
+            error
+          );
+        }
+
+        setHeroes([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchHero();
-    fetchUniversities();
+
+    return () => controller.abort();
   }, []);
 
-  const fetchHero = async () => {
-    try {
-      const res = await api.get("/public/home");
-      const heroData = {
-        ...res.data.hero,
-        video_url:
-          res.data.hero.video_url ||
-          "https://cdn.coverr.co/videos/coverr-business-meeting-2614/1080p.mp4",
-      };
-      setHero(heroData);
-    } catch (err) {
-      console.error("Hero load failed:", err);
-    }
-  };
-
-  const fetchUniversities = async () => {
-    try {
-      const res = await api.get("/public/clients");
-      const filtered = (res.data || []).filter(
-        (c) => c.type === "university"
-      );
-      // Duplicate for seamless infinite loop
-      setUniversities([...filtered, ...filtered]);
-    } catch (err) {
-      console.error("University load failed:", err);
-    }
-  };
-
-  /* =========================================================
-      AUTO CONTINUOUS SCROLL + ACTIVE INDEX
-  ========================================================= */
+  /* =======================================================
+     FETCH UNIVERSITY PARTNERS
+  ======================================================= */
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider || universities.length === 0) return;
+    const controller = new AbortController();
 
-    let animationFrame;
-    const scrollSpeed = 0.5; // px per frame — lower = slower
+    api
+      .get("/public/clients", {
+        signal: controller.signal,
+      })
+      .then(({ data }) => {
+        const clients = Array.isArray(data)
+          ? data
+          : data?.clients || data?.data || [];
 
-    const updateActiveIndex = () => {
-      const cards = slider.children;
-      const sliderCenter = slider.scrollLeft + slider.offsetWidth / 2;
-
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-
-      for (let i = 0; i < cards.length; i++) {
-        const card = cards[i];
-        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-        const distance = Math.abs(sliderCenter - cardCenter);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = i;
+        setUniversities(
+          clients.filter(
+            (client) =>
+              String(client?.type || "").toLowerCase() ===
+              "university"
+          )
+        );
+      })
+      .catch((error) => {
+        if (
+          error?.name !== "CanceledError" &&
+          error?.code !== "ERR_CANCELED"
+        ) {
+          console.error(
+            "Failed to load universities:",
+            error
+          );
         }
-      }
-      setActiveIndex(closestIndex);
-    };
+      });
 
-    const autoScroll = () => {
-      slider.scrollLeft += scrollSpeed;
-      // Reset when halfway through the duplicated list (seamless loop)
-      if (slider.scrollLeft >= slider.scrollWidth / 2) {
-        slider.scrollLeft = 0;
-      }
-      updateActiveIndex();
-      animationFrame = requestAnimationFrame(autoScroll);
-    };
+    return () => controller.abort();
+  }, []);
 
-    animationFrame = requestAnimationFrame(autoScroll);
+  /* =======================================================
+     AUTO SLIDER
+  ======================================================= */
 
-    return () => cancelAnimationFrame(animationFrame);
-  }, [universities]);
-
-  /* =========================================================
-      VIDEO PROGRESS
-  ========================================================= */
-
-  const handleTimeUpdate = () => {
-    const v = videoRef.current;
-    if (!v || !v.duration) return;
-    setProgress((v.currentTime / v.duration) * 100);
-  };
-
-  const togglePlay = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      v.play();
-      setIsPlaying(true);
-    } else {
-      v.pause();
-      setIsPlaying(false);
+  useEffect(() => {
+    if (
+      paused ||
+      heroes.length <= 1 ||
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+    ) {
+      return undefined;
     }
+
+    const timer = window.setInterval(() => {
+      setActive(
+        (current) =>
+          (current + 1) % heroes.length
+      );
+    }, 6500);
+
+    return () => window.clearInterval(timer);
+  }, [paused, heroes.length]);
+
+  /* =======================================================
+     KEEP ACTIVE INDEX VALID
+  ======================================================= */
+
+  useEffect(() => {
+    if (heroes.length === 0) {
+      setActive(0);
+      return;
+    }
+
+    if (active >= heroes.length) {
+      setActive(0);
+    }
+  }, [heroes.length, active]);
+
+  /* =======================================================
+     MOVE SLIDE
+  ======================================================= */
+
+  const moveSlide = (direction) => {
+    if (heroes.length <= 1) return;
+
+    setActive(
+      (current) =>
+        (current + direction + heroes.length) %
+        heroes.length
+    );
   };
 
-  if (!hero) return null;
+  /* =======================================================
+     PARTNER SCROLL
+  ======================================================= */
 
-  const slide = hero.images?.[0] || {};
+  const scrollPartners = (direction) => {
+    if (!trackRef.current) return;
 
-  const title           = hero.title            || slide.title;
-  const subtitle        = hero.subtitle          || slide.subtitle;
-  const primaryCtaText  = hero.primary_cta_text  || slide.primary_cta_text;
-  const primaryCtaLink  = hero.primary_cta_link  || slide.primary_cta_link;
-  const secondaryCtaText = hero.secondary_cta_text || slide.secondary_cta_text;
-  const secondaryCtaLink = hero.secondary_cta_link || slide.secondary_cta_link;
+    trackRef.current.scrollBy({
+      left:
+        direction *
+        Math.max(
+          180,
+          trackRef.current.clientWidth * 0.65
+        ),
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+        ? "auto"
+        : "smooth",
+    });
+  };
 
-  const videoUrl  = resolveUrl(hero.video_url);
-  const posterUrl = resolveUrl(hero.poster_url || slide.image_url);
+  /* =======================================================
+     LOADING
+  ======================================================= */
+
+  if (loading) {
+    return (
+      <section className="ge-home-hero">
+        <div className="ge-home-hero__body">
+          <div className="ge-home-hero__copy">
+            <p className="ge-home-hero__eyebrow">
+              YOUR PARTNER IN EDUCATION GROWTH
+            </p>
+
+            <h1>
+              Empowering Education
+              <br />
+              <span>Together</span>
+            </h1>
+
+            <p className="ge-home-hero__subtitle">
+              Connecting Students, Universities and
+              Consultants for a Brighter Future.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  /* =======================================================
+     NO HERO
+  ======================================================= */
+
+  if (!heroes.length) {
+    return null;
+  }
+
+  /* =======================================================
+     ACTIVE HERO
+  ======================================================= */
+
+  const slide = heroes[active] || heroes[0];
+
+  /* =======================================================
+     DATABASE FIELDS
+  ======================================================= */
+
+  const imageUrl = resolveUrl(
+    slide?.image_url
+  );
+
+  const subtitle =
+    slide?.subtitle || "";
+
+  const title =
+    slide?.title || "";
+
+  const description =
+    slide?.description || "";
+
+  /* =======================================================
+     CTA 1
+  ======================================================= */
+
+  const audienceCta =
+    audiences[audience] ||
+    audiences.student;
+
+  const cta1Text =
+    slide?.primary_cta_text ||
+    audienceCta.text;
+
+  const cta1Link =
+    slide?.primary_cta_link ||
+    audienceCta.href;
+
+  /* =======================================================
+     CTA 2
+  ======================================================= */
+
+  const cta2Text =
+    slide?.secondary_cta_text ||
+    "";
+
+  const cta2Link =
+    slide?.secondary_cta_link ||
+    "/about";
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
 
   return (
-    <section className="hero">
+    <section
+      className="ge-home-hero"
+      aria-roledescription="carousel"
+      aria-label="G Educonnect highlights"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") {
+          moveSlide(-1);
+        }
 
-      {/* =========================================================
-          VIDEO
-      ========================================================= */}
+        if (event.key === "ArrowRight") {
+          moveSlide(1);
+        }
+      }}
+      tabIndex={0}
+    >
+      {/* =================================================
+          HERO MAIN
+      ================================================= */}
 
-      <div className="hero-media">
-        {videoUrl ? (
-          <video
-            ref={videoRef}
-            className="hero-video"
-            src={videoUrl}
-            poster={posterUrl}
-            autoPlay
-            muted
-            loop
-            playsInline
-            onTimeUpdate={handleTimeUpdate}
-          />
-        ) : (
-          <div
-            className="hero-video hero-video-fallback"
-            style={{ backgroundImage: `url(${posterUrl})` }}
-          />
-        )}
-        <div className="hero-overlay" />
-      </div>
+      <div
+        className="ge-home-hero__main"
+        key={slide?.id || active}
+      >
+        {/* =================================================
+            LEFT CONTENT
+        ================================================= */}
 
-      {/* =========================================================
-          PLAY / PAUSE BUTTON
-      ========================================================= */}
+        <div className="ge-home-hero__body">
+          <div className="ge-home-hero__copy">
 
-      {videoUrl && (
-        <button className="hero-play-btn" onClick={togglePlay}>
-          {isPlaying ? (
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
-              <rect x="6"  y="5" width="4" height="14" rx="1" />
-              <rect x="14" y="5" width="4" height="14" rx="1" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          )}
-        </button>
-      )}
+            {/* SUBTITLE */}
 
-      {/* =========================================================
-          CONTENT
-      ========================================================= */}
-
-      <div className="hero-content-wrap">
-        <div className="hero-content">
-
-          <h1 className="hero-title">
-            <div>INDIA'S FASTEST-</div>
-            <div>GROWING UNIVERSITY</div>
-            <div>PARTNERSHIP NETWORK</div>
-          </h1>
-
-          <div className="hero-cta-row">
-            {primaryCtaText && (
-              <a href={primaryCtaLink || "#"} className="btn-filled">
-                {primaryCtaText}
-              </a>
+            {subtitle && (
+              <p className="ge-home-hero__eyebrow">
+                {subtitle}
+              </p>
             )}
-            {secondaryCtaText && (
-              <a href={secondaryCtaLink || "#"} className="btn-outline">
-                {secondaryCtaText}
-              </a>
+
+            {/* TITLE */}
+
+            {title && (
+              <h1 id="ge-home-title">
+                {title}
+              </h1>
             )}
-          </div>
 
-          <p className="hero-subtitle">{subtitle}</p>
+            {/* DESCRIPTION */}
 
-        </div>
-      </div>
+            {description && (
+              <p className="ge-home-hero__subtitle">
+                {description}
+              </p>
+            )}
 
-      {/* =========================================================
-          AUTO-SCROLLING UNIVERSITY STRIP
-      ========================================================= */}
+            {/* CTA AREA */}
 
-      {universities.length > 0 && (
-        <div className="university-strip">
-          <div className="university-strip__track" ref={sliderRef}>
-            {universities.map((uni, index) => {
-              const isActive  = index === activeIndex;
-              const isHovered = index === hoverIndex;
+            {(cta1Text || cta2Text) && (
+              <div className="ge-home-hero__actions-row">
 
-              return (
-                <div
-                  key={`${uni.id || uni.name}-${index}`}
-                  className={`university-card${isActive ? " active" : ""}`}
-                  onClick={() => navigate(`/university/${uni.slug}`)}
-                  onMouseEnter={() => setHoverIndex(index)}
-                  onMouseLeave={() => setHoverIndex(null)}
-                >
-                  {uni.logo_url && (
-                    <img
-                      src={resolveUrl(uni.logo_url)}
-                      alt={uni.name || "Partner"}
-                      loading="lazy"
+                {/* PRIMARY CTA */}
+
+                {cta1Text && (
+                  <Link
+                    to={cta1Link || "#"}
+                    className="ge-home-hero__cta"
+                  >
+                    {cta1Text}
+
+                    <ArrowRight
+                      size={19}
+                      aria-hidden="true"
                     />
-                  )}
+                  </Link>
+                )}
 
-                  <div className={`uni-name${isHovered || isActive ? " show" : ""}`}>
-                    {uni.name}
-                  </div>
-                </div>
-              );
-            })}
+                {/* SECONDARY CTA */}
+
+                {cta2Text && (
+                  <Link
+                    to={cta2Link || "#"}
+                    className="ge-home-hero__secondary"
+                  >
+                    <span className="ge-home-hero__play">
+                      <Play
+                        size={12}
+                        fill="currentColor"
+                      />
+                    </span>
+
+                    {cta2Text}
+                  </Link>
+                )}
+              </div>
+            )}
+
+            {/* OPTIONAL AUDIENCE SELECTOR */}
+
+       
           </div>
         </div>
-      )}
 
-      {/* =========================================================
-          PROGRESS BAR
-      ========================================================= */}
+        {/* =================================================
+            RIGHT IMAGE
+        ================================================= */}
 
-      <div className="hero-progress">
-        <div
-          className="hero-progress-fill"
-          style={{ width: `${progress}%` }}
+     <div className="ge-home-hero__visual">
+
+  <div className="ge-home-hero__slides">
+    {heroes.map((item, index) => {
+      const image = resolveUrl(
+        item?.image_url
+      );
+
+      if (!image) return null;
+
+      return (
+        <img
+          key={
+            item?.id ||
+            `${item?.image_url}-${index}`
+          }
+          className={`ge-home-hero__art ${
+            index === active
+              ? "is-active"
+              : ""
+          }`}
+          src={image}
+          alt={item?.title || ""}
+          fetchPriority={
+            index === active
+              ? "high"
+              : "auto"
+          }
         />
+      );
+    })}
+  </div>
+
+  <div
+    className="ge-home-hero__note"
+    aria-hidden="true"
+  >
+    Better
+    <br />
+    Education
+    <br />
+    Brighter
+    <br />
+    Tomorrows
+
+    <svg
+      viewBox="0 0 130 110"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M100 5C145 58 73 82 16 95m0 0 12-17m-12 17 23 3"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+
+</div>
+        {/* =================================================
+            SLIDE ARROWS
+        ================================================= */}
+
+        {heroes.length > 1 && (
+          <>
+            <button
+              className="ge-home-hero__arrow ge-home-hero__arrow--left"
+              type="button"
+              onClick={() => moveSlide(-1)}
+              aria-label="Previous slide"
+            >
+              <ChevronLeft />
+            </button>
+
+            <button
+              className="ge-home-hero__arrow ge-home-hero__arrow--right"
+              type="button"
+              onClick={() => moveSlide(1)}
+              aria-label="Next slide"
+            >
+              <ChevronRight />
+            </button>
+          </>
+        )}
+
+        {/* =================================================
+            DOTS
+        ================================================= */}
+
+        {heroes.length > 1 && (
+          <div
+            className="ge-home-hero__dots"
+            role="tablist"
+            aria-label="Choose hero slide"
+          >
+            {heroes.map((item, index) => (
+              <button
+                key={item?.id || index}
+                type="button"
+                className={
+                  index === active
+                    ? "is-active"
+                    : ""
+                }
+                onClick={() =>
+                  setActive(index)
+                }
+                aria-label={`Show slide ${
+                  index + 1
+                }`}
+                aria-selected={
+                  index === active
+                }
+                role="tab"
+              />
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* =================================================
+          LOWER CARD
+      ================================================= */}
+
+      <div className="ge-home-hero__lower-card">
+
+        {/* STATS */}
+
+        <div className="ge-home-hero__stats">
+          {stats.map(
+            ({
+              value,
+              label,
+              Icon,
+            }) => (
+              <div key={label}>
+                <Icon />
+
+                <strong>
+                  {value}
+                </strong>
+
+                <small>
+                  {label}
+                </small>
+              </div>
+            )
+          )}
+        </div>
+
+        {/* PARTNER UNIVERSITIES */}
+
+        {universities.length > 0 && (
+          <div
+            className="ge-home-hero__partners"
+            aria-label="Our partner universities"
+          >
+            <p>
+              Our Partner Universities
+            </p>
+
+            <div className="ge-home-hero__partner-row">
+
+              <button
+                type="button"
+                aria-label="Previous universities"
+                onClick={() =>
+                  scrollPartners(-1)
+                }
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div
+                className="ge-home-hero__track"
+                ref={trackRef}
+              >
+                {universities.map(
+                  (uni, index) => (
+                    <Link
+                      key={
+                        uni?.id ||
+                        `${uni?.slug}-${index}`
+                      }
+                      to={
+                        uni?.slug
+                          ? `/university/${uni.slug}`
+                          : "/clients"
+                      }
+                      className="ge-home-hero__partner"
+                      title={
+                        uni?.name ||
+                        undefined
+                      }
+                    >
+                      {uni?.logo_url ? (
+                        <img
+                          src={resolveUrl(
+                            uni.logo_url
+                          )}
+                          alt={
+                            uni?.name ||
+                            "Partner university"
+                          }
+                          loading="lazy"
+                          onError={(event) => {
+                            event.currentTarget.hidden =
+                              true;
+
+                            if (
+                              event.currentTarget
+                                .nextElementSibling
+                            ) {
+                              event.currentTarget
+                                .nextElementSibling
+                                .hidden = false;
+                            }
+                          }}
+                        />
+                      ) : null}
+
+                      <span
+                        hidden={Boolean(
+                          uni?.logo_url
+                        )}
+                      >
+                        {uni?.name ||
+                          "University"}
+                      </span>
+                    </Link>
+                  )
+                )}
+              </div>
+
+              <button
+                type="button"
+                aria-label="Next universities"
+                onClick={() =>
+                  scrollPartners(1)
+                }
+              >
+                <ChevronRight size={18} />
+              </button>
+
+            </div>
+          </div>
+        )}
+      </div>
     </section>
   );
 }

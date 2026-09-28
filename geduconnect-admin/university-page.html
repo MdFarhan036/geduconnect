@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vivekananda Global University Online | G Educonnect</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+      --primary: #6f1022;
+      --primary-dark: #430914;
+      --primary-light: #fff1f3;
+
+      --gold: #f5a900;
+      --gold-dark: #d98d00;
+      --gold-light: #fff7df;
+
+      --text: #171717;
+      --muted: #666;
+      --border: #e7e7e7;
+      --bg: #fafafa;
+      --white: #fff;
+
+      --success: #0da66d;
+      --success-bg: #e8fff5;
+
+      --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    select {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+      height: 76px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 190px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .logo-text strong {
+      display: block;
+      color: var(--primary);
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 7px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      flex: 1;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .search-box {
+      width: 260px;
+      height: 42px;
+      border: 1px solid #e2e2e2;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 15px;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .login-btn {
+      border: 0;
+      background: transparent;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      border: 0;
+      padding: 12px 21px;
+      border-radius: 24px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-dark);
+    }
+
+    /* =========================================================
+       HERO COVER
+    ========================================================= */
+
+    .campus-hero {
+      height: 330px;
+      position: relative;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.08),
+          rgba(0, 0, 0, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65),
+        transparent
+      );
+      height: 150px;
+    }
+
+    .photo-label {
+      position: absolute;
+      right: 35px;
+      bottom: 25px;
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    /* =========================================================
+       UNIVERSITY HEADER
+    ========================================================= */
+
+    .university-header {
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(150, 28, 55, 0.45),
+          transparent 30%
+        ),
+        linear-gradient(
+          120deg,
+          #25050d,
+          #4a0c18,
+          #26060d
+        );
+      color: white;
+      padding: 25px 0 20px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #d6c8cb;
+      margin-bottom: 20px;
+    }
+
+    .university-main {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .university-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 15px;
+      background: white;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 22px;
+      font-weight: 900;
+      border: 4px solid white;
+      box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    }
+
+    .university-info h1 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .university-info h1 span {
+      display: block;
+      font-size: 19px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .university-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      color: #eee;
+      font-size: 13px;
+    }
+
+    .rating {
+      background: rgba(245,169,0,.17);
+      border: 1px solid rgba(245,169,0,.5);
+      color: #ffd36a;
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-weight: 700;
+    }
+
+    .private-tag {
+      background: rgba(255,255,255,.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 235px;
+    }
+
+    .apply-btn {
+      border: 0;
+      background: var(--gold);
+      color: #111;
+      font-weight: 800;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .advisor-btn {
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.08);
+      color: white;
+      font-weight: 700;
+      padding: 13px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       APPROVALS
+    ========================================================= */
+
+    .approvals {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .approval-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ddd;
+      margin-right: 5px;
+    }
+
+    .approval {
+      background: white;
+      color: #333;
+      border-radius: 7px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ugc {
+      background: #7c2638;
+      color: white;
+    }
+
+    .gold-approval {
+      background: #4d3a0a;
+      color: #ffd65b;
+      border: 1px solid #a77b00;
+    }
+
+    /* =========================================================
+       SECTION NAV
+    ========================================================= */
+
+    .section-nav {
+      position: sticky;
+      top: 76px;
+      z-index: 900;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-nav-inner {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    .section-nav a {
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+    }
+
+    .section-nav a:hover,
+    .section-nav a.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* =========================================================
+       MAIN CONTENT
+    ========================================================= */
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 30px;
+      padding: 45px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .section-heading h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-right: 9px;
+      vertical-align: middle;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .about-text {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .about-text strong {
+      color: #222;
+    }
+
+    .read-more {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       QUICK APPLY
+    ========================================================= */
+
+    .apply-card {
+      background: #171717;
+      color: white;
+      padding: 20px;
+      border-radius: 20px;
+      position: sticky;
+      top: 140px;
+      box-shadow: 0 20px 45px rgba(0,0,0,.18);
+    }
+
+    .apply-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 1px solid #444;
+      border-radius: 13px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .apply-tab {
+      padding: 11px 5px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #aaa;
+    }
+
+    .apply-tab.active {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .waiver {
+      background: #3b320c;
+      border: 1px solid #8f7200;
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    .active-badge {
+      background: var(--gold);
+      color: #111;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-weight: 800;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .course-select {
+      width: 100%;
+      height: 45px;
+      border-radius: 11px;
+      background: #252525;
+      border: 1px solid #555;
+      color: white;
+      padding: 0 12px;
+      margin-bottom: 12px;
+    }
+
+    .apply-main {
+      width: 100%;
+      height: 47px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--gold);
+      font-weight: 800;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+
+    .syllabus {
+      width: 100%;
+      height: 40px;
+      border-radius: 11px;
+      background: #444;
+      color: white;
+      border: 1px solid #666;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    .apply-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .whatsapp {
+      background: #16cf75;
+      border: 0;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .talk {
+      background: #4b4b4b;
+      border: 1px solid #666;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .verified {
+      border-top: 1px solid #333;
+      margin-top: 15px;
+      padding-top: 13px;
+      color: #aaa;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .verified span {
+      color: #0fe78b;
+    }
+
+    /* =========================================================
+       INFO CARDS
+    ========================================================= */
+
+    .glance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 20px;
+      background: white;
+      min-height: 145px;
+      transition: .2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #fff0f2;
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .info-card small {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #777;
+      margin-bottom: 5px;
+    }
+
+    .info-card p {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* =========================================================
+       BENEFITS
+    ========================================================= */
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: #fff8f9;
+      border: 1px solid #f5dce1;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 35px 0;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .benefit-icon {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #ffe8ed;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 11px;
+    }
+
+    .benefit span {
+      display: block;
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* =========================================================
+       WHY GEDU
+    ========================================================= */
+
+    .why-card {
+      border: 1px solid #f0dfe2;
+      background: #fffafa;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    .why-card h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .why-list {
+      list-style: none;
+    }
+
+    .why-list li {
+      font-size: 12px;
+      padding: 7px 0;
+      color: #555;
+    }
+
+    .why-list li::before {
+      content: "✓";
+      background: var(--primary);
+      color: white;
+      width: 18px;
+      height: 18px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       PROGRAMS
+    ========================================================= */
+
+    .programs-section {
+      padding: 20px 0 40px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .program-card {
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 18px;
+      background: white;
+      transition: .2s;
+    }
+
+    .program-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .program-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 9px;
+      background: #f5edff;
+      color: #6b26a6;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+
+    .program-card h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .program-card p {
+      font-size: 11px;
+      color: #777;
+      min-height: 52px;
+    }
+
+    .program-meta {
+      font-size: 11px;
+      color: #555;
+      margin: 8px 0;
+    }
+
+    .program-price {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .program-link {
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 12px;
+      display: block;
+    }
+
+    /* =========================================================
+       PLACEMENTS
+    ========================================================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin: 35px 0;
+    }
+
+    .placement-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .placement-card p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    .placement-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 6px;
+      text-align: center;
+    }
+
+    .stat strong {
+      color: var(--primary);
+      font-size: 17px;
+      display: block;
+    }
+
+    .stat span {
+      font-size: 8px;
+      color: #777;
+    }
+
+    /* =========================================================
+       TESTIMONIAL
+    ========================================================= */
+
+    .testimonial {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 25px;
+      position: relative;
+      min-height: 220px;
+    }
+
+    .quote {
+      font-size: 40px;
+      color: #e8bfc7;
+      line-height: 1;
+    }
+
+    .testimonial p {
+      font-size: 13px;
+      color: #555;
+      margin: 8px 0 18px;
+    }
+
+    .student {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .student-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #eee;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .student strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .student span {
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    .faq-section {
+      margin: 40px 0;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-bottom: 0;
+    }
+
+    .faq-item:first-child {
+      border-radius: 12px 12px 0 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--border);
+      border-radius: 0 0 12px 12px;
+    }
+
+    .faq-question {
+      padding: 17px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 17px 17px;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* =========================================================
+       COUNSELLING
+    ========================================================= */
+
+    .counselling {
+      background: linear-gradient(
+        120deg,
+        #fff2f4,
+        #fff8ee
+      );
+      border: 1px solid #f0d9dd;
+      border-radius: 17px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+
+    .counselling h3 {
+      font-size: 17px;
+    }
+
+    .counselling p {
+      color: #666;
+      font-size: 12px;
+      margin: 8px 0 15px;
+    }
+
+    .counselling button {
+      background: var(--gold);
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       SIMILAR UNIVERSITIES
+    ========================================================= */
+
+    .similar-section {
+      padding: 20px 0 50px;
+    }
+
+    .similar-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .similar-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+    }
+
+    .similar-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: #f6f6f6;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .similar-card strong {
+      font-size: 10px;
+      display: block;
+    }
+
+    .similar-card span {
+      color: #888;
+      font-size: 8px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #320711;
+      color: white;
+      padding: 45px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand p {
+      color: #c9b8bc;
+      font-size: 11px;
+      max-width: 300px;
+      margin-top: 12px;
+    }
+
+    footer h4 {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      display: block;
+      color: #c9b8bc;
+      font-size: 11px;
+      margin: 8px 0;
+    }
+
+    .copyright {
+      border-top: 1px solid #57212b;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #aa9297;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    /* =========================================================
+       MOBILE CTA
+    ========================================================= */
+
+    .mobile-cta {
+      display: none;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1050px) {
+      .nav-links {
+        display: none;
+      }
+
+      .search-box {
+        display: none;
+      }
+
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .apply-card {
+        position: relative;
+        top: 0;
+      }
+
+      .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .similar-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .container {
+        width: min(100% - 24px, 600px);
+      }
+
+      .navbar {
+        height: 65px;
+      }
+
+      .logo {
+        min-width: auto;
+      }
+
+      .logo-mark {
+        width: 35px;
+        height: 35px;
+      }
+
+      .logo-text strong {
+        font-size: 14px;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .campus-hero {
+        height: 220px;
+      }
+
+      .photo-label {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .university-main {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .university-logo {
+        width: 70px;
+        height: 70px;
+      }
+
+      .university-info h1 {
+        font-size: 20px;
+      }
+
+      .university-info h1 span {
+        font-size: 14px;
+      }
+
+      .university-meta {
+        gap: 8px;
+        font-size: 11px;
+      }
+
+      .hero-buttons {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .approvals {
+        gap: 6px;
+      }
+
+      .approval {
+        font-size: 9px;
+        padding: 6px 8px;
+      }
+
+      .section-nav {
+        top: 65px;
+      }
+
+      .section-nav a {
+        padding: 13px 14px;
+        font-size: 11px;
+      }
+
+      .main-layout {
+        padding: 30px 0;
+      }
+
+      .glance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .placement-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .similar-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mobile-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 -5px 20px rgba(0,0,0,.15);
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        z-index: 2000;
+      }
+
+      .mobile-cta button {
+        height: 45px;
+        border: 0;
+        border-radius: 10px;
+        font-weight: 800;
+      }
+
+      .mobile-apply {
+        background: var(--gold);
+      }
+
+      .mobile-whatsapp {
+        background: #18c96f;
+        color: white;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .logo-text span {
+        display: none;
+      }
+
+      .login-btn {
+        font-size: 12px;
+      }
+
+      .campus-hero {
+        height: 180px;
+      }
+
+      .university-header {
+        padding-top: 18px;
+      }
+
+      .university-main {
+        gap: 12px;
+      }
+
+      .university-info h1 {
+        font-size: 17px;
+      }
+
+      .university-info h1 span {
+        font-size: 12px;
+      }
+
+      .university-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .similar-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        <div class="logo-mark">G</div>
+
+        <div class="logo-text">
+          <strong>GEDUCONNECT</strong>
+          <span>Learning Has Boundless Possibilities</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#" class="nav-link">🎓 All Programs</a>
+        <a href="#" class="nav-link">🏫 Top Universities</a>
+        <a href="#" class="nav-link">⚖ Compare</a>
+        <a href="#" class="nav-link">✣ Mentors</a>
+      </nav>
+
+      <div class="search-box">
+        🔍
+        <span>Search colleges, MBA...</span>
+      </div>
+
+      <div class="nav-actions">
+        <button class="login-btn">♙ Login</button>
+        <button class="nav-cta" onclick="openCounselling()">
+          ✣ Free Counselling
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =======================================================
+       CAMPUS COVER
+  ======================================================== -->
+
+  <section class="campus-hero">
+
+    <div class="hero-bottom"></div>
+
+    <div class="photo-label">
+      ▣ View Photos
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       UNIVERSITY HEADER
+  ======================================================== -->
+
+  <section class="university-header">
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <span>Home</span>
+        /
+        <span>Universities</span>
+        /
+        <strong>Vivekananda Global University Online</strong>
+      </div>
+
+      <div class="university-main">
+
+        <div class="university-logo">
+          ON.<br>VGU
+        </div>
+
+        <div class="university-info">
+
+          <h1>
+            Vivekananda Global University (VGU Online)
+            <span>
+              — Programs, Fees, Admissions & Placements
+            </span>
+          </h1>
+
+          <div class="university-meta">
+
+            <span>📍 Jaipur, Rajasthan</span>
+
+            <span>▣ Est. 2012</span>
+
+            <span>🎓 Online</span>
+
+            <span class="private-tag">
+              Private
+            </span>
+
+            <span class="rating">
+              ★★★★★ 4.6 (169+ Reviews)
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="hero-buttons">
+
+          <button
+            class="apply-btn"
+            onclick="openApplication()"
+          >
+            Apply to University →
+          </button>
+
+          <button
+            class="advisor-btn"
+            onclick="openCounselling()"
+          >
+            ♧ Talk to Advisor
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- APPROVALS -->
+
+      <div class="approvals">
+
+        <span class="approval ugc">
+          ✓ UGC-DEB Entitled
+        </span>
+
+        <span class="approval-title">
+          APPROVALS:
+        </span>
+
+        <span class="approval">
+          🏅 AICTE
+        </span>
+
+        <span class="approval">
+          🔴 NAAC A
+        </span>
+
+        <span class="approval">
+          ⚪ AIU
+        </span>
+
+        <span class="approval gold-approval">
+          ★ NIRF Top 100
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       SECTION NAVIGATION
+  ======================================================== -->
+
+  <nav class="section-nav">
+
+    <div class="container section-nav-inner">
+
+      <a href="#overview" class="active">
+        Overview
+      </a>
+
+      <a href="#courses">
+        Courses & Fees
+        <small>100</small>
+      </a>
+
+      <a href="#admission">
+        Admission
+        <small>2026-27</small>
+      </a>
+
+      <a href="#placements">
+        Placements
+        <small>15+ LPA</small>
+      </a>
+
+      <a href="#support">
+        Student Support
+        <small>24/7</small>
+      </a>
+
+      <a href="#faq">
+        FAQs
+        <small>8+</small>
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
+  <main class="container main-layout">
+
+    <div class="content">
+
+
+      <!-- OVERVIEW -->
+
+      <section id="overview">
+
+        <div class="section-heading">
+
+          <h2>
+            About Vivekananda Global University Online
+          </h2>
+
+        </div>
+
+        <p class="about-text">
+          Established in 2012 in Jaipur, Rajasthan,
+          Vivekananda Global University (VGU) is a
+          multidisciplinary private university set up by
+          the Rajasthan State Legislature under the
+          <strong>
+            Vivekananda Global University, Jaipur Act
+            (Act No. 11/2012)
+          </strong>.
+          Founded by the
+          <strong>Bagru Raje Educational Society (BRES)</strong>,
+          VGU draws inspiration from Swami Vivekananda's
+          vision of education as a force for personal and
+          societal transformation.
+        </p>
+
+        <p class="about-text">
+
+          Recognising the growing demand for accessible,
+          career-oriented higher education, VGU launched
+          its dedicated
+          <strong>
+            Centre for Distance and Online Education (CDOE)
+          </strong>.
+          VGU Online delivers digitally enabled
+          undergraduate and postgraduate degree programs
+          for working professionals, entrepreneurs,
+          defence personnel and fresh graduates.
+
+        </p>
+
+        <span
+          class="read-more"
+          onclick="toggleAbout()"
+          id="readMore"
+        >
+          Read More ↓
+        </span>
+
+      </section>
+
+
+      <!-- GLANCE -->
+
+      <section style="margin-top:35px">
+
+        <div class="section-heading">
+          <h2>VGU Online at a Glance</h2>
+        </div>
+
+        <div class="glance-grid">
+
+          <div class="info-card">
+
+            <div class="icon-box">
+              ◷
+            </div>
+
+            <small>ESTABLISHMENT YEAR</small>
+
+            <p>
+              2012
+              <br>
+              State Private University Act No. 11/2012
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <div class="icon-box">
+              ✓
+            </div>
+
+            <small>SPONSORING BODY</small>
+
+            <p>
+              Bagru Raje Educational Society (BRES)
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <div class="icon-box">
+              🏛
+            </div>
+
+            <small>UNIVERSITY TYPE</small>
+
+            <p>
+              Private University
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <div class="icon-box">
+              💻
+            </div>
+
+            <small>MODE OF EDUCATION</small>
+
+            <p>
+              Online / Centre for Distance & Online Education
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- BENEFITS -->
+
+      <section class="benefits">
+
+        <div class="benefit">
+
+          <div class="benefit-icon">
+            🎓
+          </div>
+
+          <div>
+            <strong>Learn Anytime, Anywhere</strong>
+            <span>Flexible study experience</span>
+          </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">
+            ✓
+          </div>
+
+          <div>
+            <strong>UGC Recognised</strong>
+            <span>Valid & trusted degree</span>
+          </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">
+            💼
+          </div>
+
+          <div>
+            <strong>Industry-Relevant Programs</strong>
+            <span>Career-focused curriculum</span>
+          </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">
+            ♧
+          </div>
+
+          <div>
+            <strong>Dedicated Student Support</strong>
+            <span>24/7 assistance</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- COURSES -->
+
+      <section id="courses" class="programs-section">
+
+        <div class="section-heading">
+
+          <h2>
+            Popular Online Programs
+          </h2>
+
+          <a
+            href="#"
+            class="section-label"
+          >
+            View All Programs →
+          </a>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+          <div class="program-card">
+
+            <div class="program-icon">
+              🎓
+            </div>
+
+            <h3>Online MBA</h3>
+
+            <p>
+              Advance your career with a UGC-recognized
+              Online MBA program.
+            </p>
+
+            <div class="program-meta">
+              ◷ 2 Years
+            </div>
+
+            <div class="program-price">
+              ₹1,20,000 Total Fee
+            </div>
+
+            <a href="#" class="program-link">
+              View Details →
+            </a>
+
+          </div>
+
+
+          <div class="program-card">
+
+            <div class="program-icon">
+              🎓
+            </div>
+
+            <h3>Online BBA</h3>
+
+            <p>
+              Build a strong foundation for your
+              management career.
+            </p>
+
+            <div class="program-meta">
+              ◷ 3 Years
+            </div>
+
+            <div class="program-price">
+              ₹90,000 Total Fee
+            </div>
+
+            <a href="#" class="program-link">
+              View Details →
+            </a>
+
+          </div>
+
+
+          <div class="program-card">
+
+            <div class="program-icon">
+              💻
+            </div>
+
+            <h3>Online MCA</h3>
+
+            <p>
+              Gain advanced technical and managerial
+              skills.
+            </p>
+
+            <div class="program-meta">
+              ◷ 2 Years
+            </div>
+
+            <div class="program-price">
+              ₹1,00,000 Total Fee
+            </div>
+
+            <a href="#" class="program-link">
+              View Details →
+            </a>
+
+          </div>
+
+
+          <div class="program-card">
+
+            <div class="program-icon">
+              💻
+            </div>
+
+            <h3>Online BCA</h3>
+
+            <p>
+              Start your journey into the IT and
+              software industry.
+            </p>
+
+            <div class="program-meta">
+              ◷ 3 Years
+            </div>
+
+            <div class="program-price">
+              ₹90,000 Total Fee
+            </div>
+
+            <a href="#" class="program-link">
+              View Details →
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PLACEMENTS + TESTIMONIAL -->
+
+      <section id="placements" class="two-column">
+
+        <div class="placement-card">
+
+          <div class="section-heading">
+            <h2>Placements & Career Support</h2>
+          </div>
+
+          <p>
+            VGU Online provides dedicated career support,
+            including resume building, interview preparation
+            and access to placement opportunities through
+            its industry network.
+          </p>
+
+          <div class="placement-stats">
+
+            <div class="stat">
+              <strong>500+</strong>
+              <span>Hiring Partners</span>
+            </div>
+
+            <div class="stat">
+              <strong>85%</strong>
+              <span>Placement Support</span>
+            </div>
+
+            <div class="stat">
+              <strong>10+ LPA</strong>
+              <span>Highest Package</span>
+            </div>
+
+            <div class="stat">
+              <strong>4.5 LPA</strong>
+              <span>Average Package</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="testimonial">
+
+          <div class="section-heading">
+            <h2>Student Testimonials</h2>
+          </div>
+
+          <div class="quote">
+            “
+          </div>
+
+          <p>
+            The flexibility and support from VGU Online
+            helped me complete my degree while continuing
+            my professional career.
+          </p>
+
+          <div class="student">
+
+            <div class="student-avatar">
+              RS
+            </div>
+
+            <div>
+              <strong>Rohit Sharma</strong>
+              <span>Online MBA · 2024</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ADMISSION -->
+
+      <section id="admission">
+
+        <div class="section-heading">
+          <h2>Admission Process</h2>
+        </div>
+
+        <div class="glance-grid">
+
+          <div class="info-card">
+            <div class="icon-box">1</div>
+            <small>STEP 01</small>
+            <p>Choose your online program</p>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">2</div>
+            <small>STEP 02</small>
+            <p>Submit your application</p>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">3</div>
+            <small>STEP 03</small>
+            <p>Upload required documents</p>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">4</div>
+            <small>STEP 04</small>
+            <p>Complete admission & fee payment</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- SUPPORT -->
+
+      <section id="support" style="margin-top:40px">
+
+        <div class="section-heading">
+          <h2>Student Support</h2>
+        </div>
+
+        <div class="benefits">
+
+          <div class="benefit">
+            <div class="benefit-icon">♧</div>
+            <div>
+              <strong>Academic Support</strong>
+              <span>Guidance throughout your program</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">💬</div>
+            <div>
+              <strong>Student Counselling</strong>
+              <span>Personalised assistance</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">📄</div>
+            <div>
+              <strong>Documentation Help</strong>
+              <span>Admission assistance</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">☎</div>
+            <div>
+              <strong>24/7 Support</strong>
+              <span>Quick resolution</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FAQ -->
+
+      <section id="faq" class="faq-section">
+
+        <div class="section-heading">
+
+          <h2>
+            Frequently Asked Questions
+          </h2>
+
+          <a href="#" class="section-label">
+            View All FAQs →
+          </a>
+
+        </div>
+
+
+        <div class="faq-item open">
+
+          <div
+            class="faq-question"
+            onclick="toggleFaq(this)"
+          >
+            Is VGU Online degree UGC recognised?
+            <span>⌃</span>
+          </div>
+
+          <div class="faq-answer">
+            Yes, VGU Online programs can be presented with
+            the applicable recognition and entitlement
+            information for the relevant academic session.
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <div
+            class="faq-question"
+            onclick="toggleFaq(this)"
+          >
+            What is the mode of examination?
+            <span>⌄</span>
+          </div>
+
+          <div class="faq-answer">
+            Examination details depend on the specific
+            program and academic session.
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <div
+            class="faq-question"
+            onclick="toggleFaq(this)"
+          >
+            Can working professionals apply?
+            <span>⌄</span>
+          </div>
+
+          <div class="faq-answer">
+            Eligibility depends on the selected program.
+            Working professionals can explore programs
+            designed for flexible online learning.
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <div
+            class="faq-question"
+            onclick="toggleFaq(this)"
+          >
+            What is the fee structure?
+            <span>⌄</span>
+          </div>
+
+          <div class="faq-answer">
+            Fees vary by program. Select a course above
+            to view its applicable fee structure.
+          </div>
+
+        </div>
+
+
+        <!-- COUNSELLING -->
+
+        <div class="counselling">
+
+          <h3>
+            Get Free Expert Counselling
+          </h3>
+
+          <p>
+            Talk to our education experts and get
+            personalised guidance for VGU Online admissions.
+          </p>
+
+          <button onclick="openCounselling()">
+            ☎ Talk to Advisor
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- SIMILAR UNIVERSITIES -->
+
+      <section class="similar-section">
+
+        <div class="section-heading">
+
+          <h2>
+            Similar Universities
+          </h2>
+
+          <a href="#" class="section-label">
+            View More Universities →
+          </a>
+
+        </div>
+
+
+        <div class="similar-grid">
+
+          <div class="similar-card">
+            <div class="similar-logo">AMITY</div>
+            <div>
+              <strong>Amity University Online</strong>
+              <span>Noida, Uttar Pradesh</span>
+            </div>
+          </div>
+
+          <div class="similar-card">
+            <div class="similar-logo">JAIN</div>
+            <div>
+              <strong>Jain University Online</strong>
+              <span>Bengaluru, Karnataka</span>
+            </div>
+          </div>
+
+          <div class="similar-card">
+            <div class="similar-logo">MANIPAL</div>
+            <div>
+              <strong>Manipal University Online</strong>
+              <span>Manipal, Karnataka</span>
+            </div>
+          </div>
+
+          <div class="similar-card">
+            <div class="similar-logo">LPU</div>
+            <div>
+              <strong>LPU Online</strong>
+              <span>Jalandhar, Punjab</span>
+            </div>
+          </div>
+
+          <div class="similar-card">
+            <div class="similar-logo">CU</div>
+            <div>
+              <strong>Chandigarh University</strong>
+              <span>Mohali, Punjab</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT SIDEBAR
+    ====================================================== -->
+
+    <aside>
+
+      <div class="apply-card">
+
+        <div class="apply-tabs">
+
+          <div class="apply-tab active">
+            ⚡ Quick Apply
+          </div>
+
+          <div class="apply-tab">
+            ▣ Fee Plans
+          </div>
+
+          <div class="apply-tab">
+            ♜ Eligibility
+          </div>
+
+        </div>
+
+
+        <div class="waiver">
+
+          <span>
+            🎁 Early Admission Fee Waiver
+          </span>
+
+          <span class="active-badge">
+            ACTIVE
+          </span>
+
+        </div>
+
+
+        <label class="form-label">
+          SELECT INTERESTED COURSE:
+        </label>
+
+        <select
+          class="course-select"
+          id="courseSelect"
+          onchange="updateApplyButton()"
+        >
+          <option value="Online MBA">Online MBA</option>
+          <option value="Online BBA">Online BBA</option>
+          <option value="Online MCA">Online MCA</option>
+          <option value="Online BCA">Online BCA</option>
+        </select>
+
+
+        <button
+          class="apply-main"
+          id="applyButton"
+          onclick="openApplication()"
+        >
+          Apply for Online MBA →
+        </button>
+
+
+        <button
+          class="syllabus"
+          onclick="downloadSyllabus()"
+        >
+          ↓ Download Online MBA Syllabus
+        </button>
+
+
+        <div class="apply-actions">
+
+          <button
+            class="whatsapp"
+            onclick="openWhatsApp()"
+          >
+            ● WhatsApp
+          </button>
+
+          <button
+            class="talk"
+            onclick="openCounselling()"
+          >
+            ☎ Talk to Advisor
+          </button>
+
+        </div>
+
+
+        <div class="verified">
+          <span>✓</span>
+          Verified Partner · Free Guidance · Direct Admission
+        </div>
+
+      </div>
+
+
+      <!-- WHY GEDU -->
+
+      <div class="why-card">
+
+        <h3>
+          Why Apply Through G Educonnect?
+        </h3>
+
+        <ul class="why-list">
+
+          <li>
+            100% Free Counselling
+          </li>
+
+          <li>
+            Personalised Guidance
+          </li>
+
+          <li>
+            Direct University Admission
+          </li>
+
+          <li>
+            Help with Documentation
+          </li>
+
+          <li>
+            Latest Updates on Fees & Scholarships
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="logo">
+
+          <div class="logo-mark">
+            G
+          </div>
+
+          <div class="logo-text">
+            <strong style="color:white">
+              GEDUCONNECT
+            </strong>
+
+            <span style="color:#bdaab0">
+              Learning Has Boundless Possibilities
+            </span>
+          </div>
+
+        </div>
+
+        <p>
+          Discover universities, compare programs and
+          get expert guidance for your higher education
+          journey.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Explore</h4>
+
+        <a href="#">Universities</a>
+        <a href="#">Online Programs</a>
+        <a href="#">Compare</a>
+        <a href="#">Courses</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Company</h4>
+
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Blogs</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Legal</h4>
+
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Disclaimer</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container copyright">
+      © 2026 G Educonnect. All Rights Reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- MOBILE CTA -->
+
+  <div class="mobile-cta">
+
+    <button
+      class="mobile-apply"
+      onclick="openApplication()"
+    >
+      Apply Now
+    </button>
+
+    <button
+      class="mobile-whatsapp"
+      onclick="openWhatsApp()"
+    >
+      WhatsApp
+    </button>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =====================================================
+       COURSE SELECT
+    ===================================================== */
+
+    function updateApplyButton() {
+
+      const course =
+        document.getElementById("courseSelect").value;
+
+      document.getElementById("applyButton").innerText =
+        "Apply for " + course + " →";
+
+    }
+
+
+    /* =====================================================
+       APPLICATION
+    ===================================================== */
+
+    function openApplication() {
+
+      const course =
+        document.getElementById("courseSelect").value;
+
+      alert(
+        "Application Form\n\nSelected Course: " +
+        course
+      );
+
+      // Replace this with your actual application modal
+      // or route:
+      //
+      // window.location.href =
+      // "/apply?course=" +
+      // encodeURIComponent(course);
+
+    }
+
+
+    /* =====================================================
+       COUNSELLING
+    ===================================================== */
+
+    function openCounselling() {
+
+      alert(
+        "Free Counselling\n\n" +
+        "Our education advisor will contact you shortly."
+      );
+
+      // Example:
+      //
+      // window.location.href = "/counselling";
+
+    }
+
+
+    /* =====================================================
+       WHATSAPP
+    ===================================================== */
+
+    function openWhatsApp() {
+
+      const phone =
+        "919999999999";
+
+      const course =
+        document.getElementById("courseSelect").value;
+
+      const message =
+        "Hello G Educonnect, I am interested in " +
+        course +
+        " at Vivekananda Global University Online.";
+
+      window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+      );
+
+    }
+
+
+    /* =====================================================
+       SYLLABUS
+    ===================================================== */
+
+    function downloadSyllabus() {
+
+      const course =
+        document.getElementById("courseSelect").value;
+
+      alert(
+        "Syllabus download requested for " +
+        course
+      );
+
+      // Replace with actual PDF:
+      //
+      // window.open(
+      //   "/assets/syllabus/" +
+      //   course.toLowerCase().replaceAll(" ", "-") +
+      //   ".pdf",
+      //   "_blank"
+      // );
+
+    }
+
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    function toggleFaq(element) {
+
+      const item =
+        element.parentElement;
+
+      item.classList.toggle("open");
+
+      const icon =
+        element.querySelector("span");
+
+      if (item.classList.contains("open")) {
+        icon.innerText = "⌃";
+      } else {
+        icon.innerText = "⌄";
+      }
+
+    }
+
+
+    /* =====================================================
+       ABOUT READ MORE
+    ===================================================== */
+
+    function toggleAbout() {
+
+      const button =
+        document.getElementById("readMore");
+
+      if (button.innerText.includes("Read More")) {
+
+        button.innerText =
+          "Show Less ↑";
+
+      } else {
+
+        button.innerText =
+          "Read More ↓";
+
+      }
+
+    }
+
+
+    /* =====================================================
+       ACTIVE SECTION NAV
+    ===================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        "section[id]"
+      );
+
+    const navLinks =
+      document.querySelectorAll(
+        ".section-nav a"
+      );
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        let current = "";
+
+        sections.forEach(
+          section => {
+
+            const sectionTop =
+              section.offsetTop - 180;
+
+            if (
+              window.scrollY >=
+              sectionTop
+            ) {
+              current =
+                section.getAttribute("id");
+            }
+
+          }
+        );
+
+        navLinks.forEach(
+          link => {
+
+            link.classList.remove("active");
+
+            if (
+              link.getAttribute("href") ===
+              "#" + current
+            ) {
+              link.classList.add("active");
+            }
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

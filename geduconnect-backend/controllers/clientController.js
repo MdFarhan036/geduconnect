@@ -45,9 +45,10 @@ export const getClientsAdmin = async(req, res) => {
     }
 };
 
-/* ================= ADD ================= */
 
-export const addClient = async(req, res) => {
+/* ================= ADD CLIENT ================= */
+
+export const addClient = async (req, res) => {
     try {
         const {
             name,
@@ -61,14 +62,44 @@ export const addClient = async(req, res) => {
             extra_data
         } = req.body;
 
-        const logo_url = req.file ?
-            `/uploads/clients/${req.file.filename}` :
-            null;
+        const logo_url = req.file
+            ? `/uploads/clients/${req.file.filename}`
+            : null;
+
+        /* ================= EXTRA DATA ================= */
+
+        let parsedExtraData = null;
+
+        if (extra_data) {
+            try {
+                parsedExtraData =
+                    typeof extra_data === "string"
+                        ? JSON.parse(extra_data)
+                        : extra_data;
+            } catch (err) {
+                console.error("Invalid extra_data JSON:", err);
+                parsedExtraData = {};
+            }
+        }
+
+        /* ================= INSERT ================= */
 
         const [result] = await pool.query(
             `INSERT INTO clients
-      (name, slug, description, type, mode, logo_url, apply_link, sort_order, is_active, extra_data)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+            (
+                name,
+                slug,
+                description,
+                type,
+                mode,
+                logo_url,
+                apply_link,
+                sort_order,
+                is_active,
+                extra_data
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
                 safeText(name),
                 safeText(slug),
                 safeText(description),
@@ -78,7 +109,9 @@ export const addClient = async(req, res) => {
                 safeText(apply_link),
                 toInt(sort_order, 1),
                 toBooleanInt(is_active, 1),
-                extra_data || null
+                parsedExtraData
+                    ? JSON.stringify(parsedExtraData)
+                    : null
             ]
         );
 
@@ -86,15 +119,20 @@ export const addClient = async(req, res) => {
             message: "Client added successfully",
             id: result.insertId
         });
+
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "Error adding client" });
+        console.error("ADD CLIENT ERROR:", err);
+
+        res.status(500).json({
+            message: "Error adding client"
+        });
     }
 };
 
-/* ================= UPDATE ================= */
 
-export const updateClient = async(req, res) => {
+/* ================= UPDATE CLIENT ================= */
+
+export const updateClient = async (req, res) => {
     try {
         const {
             name,
@@ -108,17 +146,35 @@ export const updateClient = async(req, res) => {
             extra_data
         } = req.body;
 
+        /* ================= EXTRA DATA ================= */
+
+        let parsedExtraData = null;
+
+        if (extra_data) {
+            try {
+                parsedExtraData =
+                    typeof extra_data === "string"
+                        ? JSON.parse(extra_data)
+                        : extra_data;
+            } catch (err) {
+                console.error("Invalid extra_data JSON:", err);
+                parsedExtraData = {};
+            }
+        }
+
+        /* ================= UPDATE FIELDS ================= */
+
         let updateFields = `
-      name = ?,
-      slug = ?,
-      description = ?,
-      type = ?,
-      mode = ?,
-      apply_link = ?,
-      sort_order = ?,
-      is_active = ?,
-      extra_data = ?
-    `;
+            name = ?,
+            slug = ?,
+            description = ?,
+            type = ?,
+            mode = ?,
+            apply_link = ?,
+            sort_order = ?,
+            is_active = ?,
+            extra_data = ?
+        `;
 
         const values = [
             safeText(name),
@@ -129,27 +185,45 @@ export const updateClient = async(req, res) => {
             safeText(apply_link),
             toInt(sort_order, 1),
             toBooleanInt(is_active, 1),
-            extra_data || null
+            parsedExtraData
+                ? JSON.stringify(parsedExtraData)
+                : null
         ];
+
+        /* ================= LOGO ================= */
 
         if (req.file) {
             updateFields += `, logo_url = ?`;
-            values.push(`/uploads/clients/${req.file.filename}`);
+
+            values.push(
+                `/uploads/clients/${req.file.filename}`
+            );
         }
+
+        /* ================= WHERE ================= */
 
         values.push(req.params.id);
 
         await pool.query(
-            `UPDATE clients SET ${updateFields} WHERE id = ?`,
+            `UPDATE clients
+             SET ${updateFields}
+             WHERE id = ?`,
             values
         );
 
-        res.json({ message: "Client updated successfully" });
+        res.json({
+            message: "Client updated successfully"
+        });
+
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "Error updating client" });
+        console.error("UPDATE CLIENT ERROR:", err);
+
+        res.status(500).json({
+            message: "Error updating client"
+        });
     }
 };
+
 
 /* ================= DELETE ================= */
 
